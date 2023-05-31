@@ -1,0 +1,179 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  margin-left: 10px;
+}
+
+
+.body-content {
+  margin-top: 60px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  min-height: calc(100vh - 60px); /* Set minimum height to fill remaining viewport */
+  background-image: url("../../image/179521397963e7c23f873bdd95c7435d.w3841.h1280.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.body-content h1 {
+  font-size: 36px;
+  color: #333333;
+  margin-top: 10px;
+  margin-left: 100px;
+  background-color: transparent;
+}
+
+.body-content p {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+
+.body-content {
+  margin-top: 5px
+}
+body > div.body-content > h1 {
+  margin-top: 174px;
+}
+
+/* css for sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  background-color: #ffffff;
+  transition: width 0.3s;
+  z-index: 999;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: #c0cfcf;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.icon i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.icon-name {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  display: none;
+  color: #333;
+  white-space: nowrap;
+}
+
+.sidebar:hover {
+  width: 250px;
+}
+
+.icon:hover {
+  background-color: #a7b5b5;
+}
+
+.sidebar:hover .icon-name {
+  display: block;
+}
+
+.sidebar:hover .total-icons {
+  margin-left: -145px;
+}
+
+/* Pharmaline writting in logo */
+.nameLogo{
+  display: none;
+  opacity: 0;
+}
+.sidebar:hover .nameLogo{
+  width: 165px;
+  height: auto;
+  display: inline-block;
+  transition: opacity 0.3s;
+  opacity: 1;
+  margin-top: -20px;
+}
+
+.sidebar:hover .logo-sidebar{
+  display: flex;
+  flex-direction: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: -90px;
+}
+
+.logo-sidebar{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.sidebar:hover .logo{
+  display: none;
+}
+
+/* Bottom icon */
+.total-icons #Log-out{
+  margin-top: 570px;
+}
+
+/* Add images to icons */
+
+#Generate-discount img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  #Check-sales img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  #Blog img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  #Fav-prod img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  
+  #Log-out img {
+    max-width: 100%;
+    max-height: 100%;
+  }

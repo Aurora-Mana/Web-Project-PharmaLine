@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pharmaline</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-y: scroll;
+    }
+
+    .container {
+      margin: 0 auto;
+      padding: 20px;
+      color: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: calc(100% - 100px); /* Subtract header height from full viewport height */
+    }
+
+    .header {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-align: center;
+      margin-right: 216px;
+    }
+
+    .category {
+      font-size: 24px;
+      margin-bottom: 10px;
+      text-align: center;
+      margin-right: 269px;
+      cursor:pointer;
+    }
+
+    header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
+
+    .header-text {
+      margin-left: 20px;
+    }
+
+    .header-icons {
+      margin-left: auto;
+    }
+
+    .header-icon {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+    }
+
+    /* Each section with a different background image */
+    .skin-care {
+      background-image: url('../image/beauty-background-various-eco-friendly-cosmetic-skin-care-products-beauty-background-various-eco-friendly-cosmetic-184476996.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%; /* Set the height to 100% to cover the entire page */
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      margin-top: -29px;
+    }
+
+    .body-care {
+      background-image: url('../image/BLOG_bricini_body-cream_1200x1200.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%; /* Set the height to 100% to cover the entire page */
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .hair-care {
+      background-image: url('../image/spa-products-with-hair-brushes-blue-background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%; /* Set the height to 100% to cover the entire page */
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .makeup {
+      background-image: url('../image/foundation-bottles-advertising-arrangement.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%; /* Set the height to 100% to cover the entire page */
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    a:link { 
+      text-decoration: none; 
+    }
+
+
+   a:visited { 
+    text-decoration: none; 
+  }
+
+
+   a:hover { 
+    text-decoration: none; 
+  }
+
+
+  a:active { 
+    text-decoration: none; 
+  }
+
+  p { 
+    margin:5px;
+   }
+
+   #skinc{
+     color: #586C5B; ;
+   }
+    
+   #bodyc{
+    color: #505050;
+    margin-right: 1012px;
+   }
+   
+   #hairc{
+    color: #6A7273 ;
+    margin-right: 1050px;
+  }
+   
+   #makec{
+    color: #6D5A4F ;
+    margin-right: -608px;
+   }
+   
+    
+    body > div.container.body-care > div.header {
+    font-size: 48px;
+    margin-bottom: 36px;
+    text-align: center;
+    margin-right: 926px;
+  }
+ 
+   body > div.container.hair-care > div.header {
+    margin-right: 1012px;
+  }
+
+
+   body > div.container.makeup > div.header {
+    margin-right: -615px; 
+   }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="../image/Logo.png" alt="Logo" class="logo">
+    <div class="header-text">
+      <h1>PHARMALINE</h1>
+    </div>
+    <div class="header-icons">
+      <img src="../image/search.png" alt="Search" class="header-icon">
+      <img src="../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <img src="../image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+    </div>
+  </header>
+
+  <!-- Skin Care Page -->
+  
+  
+  <div class="container skin-care">
+    <div class="header">SKIN CARE</div>
+    <a href="skincare/skincode.html"><p class="category" id="skinc">SkinCode</p></a>
+    <a href="skincare/Geekandgorgeus.html"><p class="category" id="skinc">Geek&Gorgeous</p></a>
+    <a href="skincare/larocheposay.html"></a><p class="category" id="skinc">La Roche Posay</p>
+    <a href="skincare/YouthLab.html"> <p class="category" id="skinc">YouthLab</p></a>
+  </div>
+
+  <!-- Body Care Page -->
+  <div class="container body-care">
+    <div class="header">BODY CARE</div>
+    <p class="category" id="bodyc">Body Scrub</p>
+    <p class="category" id="bodyc">Shower Gel</p>
+    <p class="category" id="bodyc">Body Lotion & Mist</p>
+  </div>
+
+  <!-- Hair Care Page -->
+  <div class="container hair-care">
+    <div class="header">HAIR CARE</div>
+    <p class="category" id="hairc">Shampoo</p>
+    <p class="category" id="hairc">Conditioner</p>
+    <p class="category" id="hairc">Hair Treatment</p>
+  </div>
+
+  <!-- Makeup Page -->
+  <div class="container makeup">
+    <div class="header">MAKEUP</div>
+    <p class="category" id="makec">Foundation</p>
+    <p class="category" id="makec">Mascara</p>
+    <p class="category" id="makec">Lipstick</p>
+    <p class="category" id="makec">Eyeshadow</p>
+  </div>
+
+</body>
+</html>
