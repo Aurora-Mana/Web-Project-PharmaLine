@@ -108,15 +108,15 @@
       .logo {
         display: flex;
         align-items: center;
-        margin-left:70px;
+        margin-left:10px;
         font-size: 20px;
       }
 
       .logo img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
+     width: 75px;
+     height: 75px;
+     margin-right: 10px;
+     }
 
       .logo span {
         font-weight: bold;
@@ -129,11 +129,11 @@
       }
 
       .cart-icon img {
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
-    cursor: pointer;
-}
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+      cursor: pointer;
+     }
 
       .cart-icon .dot {
         position: absolute;
@@ -160,8 +160,9 @@
 
 <body>
   <header class="header">
-    <div class="logo">SkinCode  Products</div>
-    <img src="../../image/download.png" alt="Logo">
+    <div class="logo">
+      <a href="../combinedpages.html">
+    <img src="../../image/download.png" alt="Logo"></a></div>
     <div class="cart-icon" onclick="toggleCartMenu()">
       <img src="../../image/shopping-bag (1).png" alt="Shopping Cart">
       <div id="cart-count" class="cart-count"></div>
