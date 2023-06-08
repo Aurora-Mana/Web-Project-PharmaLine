@@ -32,11 +32,6 @@
             <img src="image/logoIcon.png" alt="Blog Icon">
             <span class="icon-name">Blog</span>
           </div>
-          <div class="icon" id="Fav-prod">
-            <i class="fas favorite"></i>
-            <img src="image/favProdIcon.png" alt="Favorite Icon">
-            <span class="icon-name">Favorite Product</span>
-          </div>
           <div class="icon" id="Log-out">
             <i class="fas log-out"></i>
             <img src="image/user (1).png" alt="Bottom Icon">
@@ -47,11 +42,51 @@
       </div>
 
       <div class="body-content">
-    <div class="generate">
-      <input type="text" name ="genreateField" id="generateField" disabled>
-      <button id="generateBtn">Generate</button>
+        <div class="generate">
+        <div class = "code">
+        <input type="text" name ="genreateField" id="generateField" disabled>
+        <button id="generateBtn">Generate</button>
+        </div>
+        <div class = "codeValue">
+          <input type="radio" id="15" value="15" name="discount" disabled required>
+          <label for="15">15%</label><br>
+          <input type="radio" id="20" value="20" name="discount" disabled required>
+          <label for="20">20%</label><br>
+          <input type="radio" id="25" value="25" name="discount" disabled required>
+          <label for="25">25%</label>
+          <input type="radio" id="50" value="50" name="discount" disabled required>
+          <label for="50">50%</label>
+          <input type="radio" id="75" value="75" name="discount" disabled required>
+          <label for="75">75%</label>
+        </div>
+        <div class = "dates">
+          <label for="startDate">Start date</label>
+          <input type="date" name ="startDate" id="startDate" placeholder="Start Date" disabled required>
+          <label for="endDate" id="endDateLabel">End date</label>
+          <input type="date" name="endDate" id="endDate" placeholder="End Date" disabled required>
+        </div>
+        <div class = "activtion">
+          <Button id ="activateBtn">Activate Code</Button>
+        </div>
+      </div>
+      <div class = "infoTable">
+        <h3>Active codes</h3>
+        <h5 class ="error"></h5>
+      <table id="activationTable">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Discount</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
     </div>
     </div>
 </body>
-<script src="/assets/js/generateDiscount.js"></script>
+<script src="assets\js\generateDiscount.js"></script>
 </html>

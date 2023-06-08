@@ -9,14 +9,9 @@ genDis.addEventListener('click' , function() {
     window.location.href = "generateDiscount.html";
 });
 
-const blog = document.getElementById("Blog");
+const blog = document.getElementById("Home");
 blog.addEventListener('click' , function() {
-    window.location.href = "blogAdmin.html";
-});
-
-const favProd = document.getElementById("Fav-prod");
-favProd.addEventListener('click' , function() {
-    window.location.href = "";
+    window.location.href = "homePageAdmin.html";
 });
 
 const logOut = document.getElementById("Log-out");
