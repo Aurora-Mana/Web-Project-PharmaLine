@@ -167,6 +167,8 @@
     </div>
     <section>
       <h2>Add Product</h2>
+      <form id="add-product-form" action="add_product.php" method="POST">
+
       <form id="add-product-form">
         <label for="product-name">Product Name:</label>
         <input type="text" id="product-name" required>
@@ -183,11 +185,40 @@
         <button type="submit">Add Product</button>
       </form>
     </section>
-    <form id="add-product-form" action="add_product.php" method="POST">
+    </form>
     <section>
+      <style>
+        
+        #product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Styles for each product item */
+  #product-list li {
+    flex: 0 0 0 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+  }
+
+  /* Styles for the product item image */
+  #product-list li img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+      </style>
       <h2>Product List</h2>
       <ul id="product-list">
         <!-- Product items will be dynamically added here -->
+        
       </ul>
     </section>
   </main>
@@ -292,5 +323,7 @@
   xhr.send(new FormData(form));
 });
   </script>
+  
+  
 </body>
 </html>
