@@ -11,6 +11,8 @@ function showRegisterForm() {
   registerFormOverlay.classList.add('active');
   loginFormOverlay.classList.remove('active');
 }
+
+
 function redirectToProductsPage(category) {
   if (category === 'skin-code') {
     window.location.href = 'skin-code-products.html';
