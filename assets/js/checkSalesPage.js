@@ -11,19 +11,14 @@ home.addEventListener('click' , function() {
     window.location.href = "homePageAdmin.html";
 });
 
-const genDis = document.getElementById("Generate-dis");
+const genDis = document.getElementById("Generate-discount");
 genDis.addEventListener('click' , function() {
     window.location.href = "generateDiscount.html";
 });
 
 const blog = document.getElementById("Blog");
 blog.addEventListener('click' , function() {
-    window.location.href = "";
-});
-
-const favProd = document.getElementById("Fav-prod");
-blog.addEventListener('click' , function() {
-    window.location.href = "";
+    window.location.href = "blogAdmin.html";
 });
 
 const logOut = document.getElementById("Log-out");

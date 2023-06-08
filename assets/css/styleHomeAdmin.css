@@ -10,6 +10,20 @@ body {
   margin-left: 10px;
 }
 
+.header-text {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-text h1 {
+  font-size: 24px;
+  color: #333333;
+  margin: 0;
+}
+
+.header-icons .header-icon:hover {
+  transform: scale(1.1);
+}
 
 .body-content {
   margin-top: 60px;
@@ -18,7 +32,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: transparent;
   min-height: calc(100vh - 60px); /* Set minimum height to fill remaining viewport */
-  background-image: url("../../image/179521397963e7c23f873bdd95c7435d.w3841.h1280.png");
+  background-image: url("../../image/adminHomeBackground.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,6 +59,15 @@ body {
 }
 body > div.body-content > h1 {
   margin-top: 174px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
 }
 
 /* css for sidebar */
@@ -124,12 +147,12 @@ body > div.body-content > h1 {
   display: inline-block;
   transition: opacity 0.3s;
   opacity: 1;
-  margin-top: -20px;
+  margin-left: 80px;
 }
 
 .sidebar:hover .logo-sidebar{
   display: flex;
-  flex-direction: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
   margin-left: -90px;
