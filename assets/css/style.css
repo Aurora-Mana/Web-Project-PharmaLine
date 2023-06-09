@@ -101,15 +101,9 @@ header {
   align-items: center;
   justify-content: center;
   z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.3s;
 }
 
-.overlay.active {
-  visibility: visible;
-  opacity: 1;
-}
+
 
 .form-container {
   background-color: #ffffff;

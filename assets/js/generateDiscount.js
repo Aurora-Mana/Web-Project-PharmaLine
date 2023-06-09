@@ -51,6 +51,46 @@ genBtn.addEventListener('click', function() {
   generateField.value = code
 });
 
+<<<<<<< HEAD
+=======
+
+
+/*function getSelectedDiscount() {
+    for (let i = 0; i < radioButtons.length; i++) {
+      if (radioButtons[i].checked) {
+        return radioButtons[i].value;
+      }
+    }
+    return null; // Return null if no discount is selected
+  }
+
+  const activationTableBody = document.getElementById("activationTableBody");
+  const errorText = document.getElementById("error")
+
+  activateBtn.addEventListener('click', function() {
+    const selectedDiscount = getSelectedDiscount();
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+  
+    if (selectedDiscount && startDate && endDate) {
+      const newRow = activationTableBody.insertRow();
+  
+      const generatedCodeCell = newRow.insertCell();
+      generatedCodeCell.textContent = generatedCode;
+  
+      const discountCell = newRow.insertCell();
+      discountCell.textContent = selectedDiscount + "%";
+  
+      const startDateCell = newRow.insertCell();
+      startDateCell.textContent = startDate;
+  
+      const endDateCell = newRow.insertCell();
+      endDateCell.textContent = endDate;
+    } else {
+    }
+  });*/
+
+>>>>>>> dcc44e13bf829b7e2ff9a2eee280354ec89edc97
   const activateBtn = document.getElementById("activateBtn");
 const activationTableBody = document.querySelector("#activationTable tbody");
 
@@ -88,9 +128,20 @@ activateBtn.addEventListener("click", function() {
     codeInput.value = "";
     discountInput.checked = false;
     startDateInput.value = "";
+<<<<<<< HEAD
     endDateInput.value = ""
+=======
+    endDateInput.value = "";
+>>>>>>> dcc44e13bf829b7e2ff9a2eee280354ec89edc97
 
     // Scroll to the bottom of the table
     activationTableBody.scrollTop = activationTableBody.scrollHeight;
   }
+<<<<<<< HEAD
 });
+=======
+});
+
+  
+
+>>>>>>> dcc44e13bf829b7e2ff9a2eee280354ec89edc97

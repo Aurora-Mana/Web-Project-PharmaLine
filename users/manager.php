@@ -1,3 +1,6 @@
+<?php
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +32,8 @@
       <div class="total-icons">
         <div class="icon">
         <i class="fa-solid fa-money-check" style="color: #101114;"></i>
-          <span class="icon-name">Check Sales</span>
+        <a href="../checkSalesPage.html">
+          <span class="icon-name">Check Sales</span></a>
         </div>
         <div class="icon">
         <i class="fa-solid fa-square-plus" style="color: #212c40;"></i>

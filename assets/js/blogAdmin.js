@@ -16,10 +16,14 @@ blog.addEventListener('click' , function() {
 
 const logOut = document.getElementById("Log-out");
 logOut.addEventListener('click' , function() {
+<<<<<<< HEAD
     window.location.href = "index.php";
 });
 
 const addPost = document.getElementById("addPost");
 addPost.addEventListener('click' , function() {
     window.location.href = "blogPostAdmin.html";
+=======
+    window.location.href = "index.html";
+>>>>>>> dcc44e13bf829b7e2ff9a2eee280354ec89edc97
 });

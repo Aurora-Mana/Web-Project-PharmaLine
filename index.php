@@ -16,7 +16,8 @@
     </div>
     <div class="header-icons">
       <img src="image/search.png" alt="Search" class="header-icon">
-      <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <a href="users/login.php">
+      <img src="image/user (1).png" alt="User" class="header-icon"></a>
       <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
     </div>
   </header>
@@ -28,46 +29,8 @@
     <button onclick="window.location.href='categories/combinedpages.html'">View products</button>
   </div>
 
-  <div id="loginFormOverlay" class="overlay">
-    <div class="form-container">
-      <h2>PharmaLine</h2>
-      <form>
-        <form action="index.html" method="post">
-          <input type="email" placeholder="email" required>
-          <input type="password" placeholder="Password" required>
-          <input type="submit" name="submit" id="rbutton" value="Log in">
-          <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p>
-        </form>
-      <div class="form-switch">
-        <input type="checkbox" id="rememberMe">
-        <label for="rememberMe">Remember me</label>
-      </div>
-    </div>
-  </div>
-
-  <div id="registerFormOverlay" class="overlay">
-    <div class="form-container">
-      <h2>Register</h2>
-      <form action="index.html" method="post">
-        <input type="text" name="fullname" placeholder="Full Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="repeat_password" placeholder="Repeat Password">
-        
-         <select name="user_type" class="form-select mb-3" name="role" aria-label="Default select example">
-          <option selected value="custumer">Customer</option>
-          <option value="clerk">Clerk</option>
-          <option value="manager">Manager</option>
-          <option value="admin">Admin</option>
- 
-        </select>
-
-        <input type="submit" name="submit" value="Register" id="rbutton">
-        <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
-      </form>
-    </div>
-  </div>
 
   <script src="assets/js/script.js"></script>
+
 </body>
 </html>
