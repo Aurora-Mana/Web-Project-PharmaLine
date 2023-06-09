@@ -233,7 +233,7 @@ body > div.product-info > p:nth-child(2) {
 </head>
 <body>
   <header>
-    <a href="categories/skincare/larocheposay.html">
+    <a href="categories/skincare/skincode.html">
     <img src="image/Logo.png" alt="Logo" class="logo"></a>
     <div class="header-text">
       <h1>PHARMALINE</h1>
@@ -248,7 +248,7 @@ body > div.product-info > p:nth-child(2) {
   <div class="product-description">
     <div class="product-image">
       <div class="image-slider">
-        <img src="image/01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png" alt="Product Image" class="main-image">
+        <img src="image/images.jfif.png" alt="Product Image" class="main-image">
         <img src="image/Skincode_Essentials-Daily-Care_1002-3-Texture-300x300.jpg" alt="Image 1" class="slider-image thumbnail-image">
         <img src="image/image/skincode-essentials-hydro-repair-serum-500x500.webp.png" alt="Image 2" class="slider-image thumbnail-image">
         <img src="image/image/Smart-Age-Kit_360x.webp.png" alt="Image 3" class="slider-image thumbnail-image">
@@ -272,7 +272,8 @@ body > div.product-info > p:nth-child(2) {
   <div class="shopping-bag" id="shoppingBag">
     <h3 class="shopping-bag-title">Shopping Bag</h3>
     <ul class="shopping-bag-list" id="shoppingBagList"></ul>
-    <button class="checkout-button" id="checkoutButton">Checkout</button>
+    <a href="checkout.html">
+    <button class="checkout-button" id="checkoutButton">Checkout</button></a>
   </div>
 
   <div class="product-info">
@@ -307,7 +308,7 @@ body > div.product-info > p:nth-child(2) {
     function addToBag() {
       var shoppingBagList = document.getElementById('shoppingBagList');
       var productName = 'Product Name';
-      var productImage = 'image/01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png';
+      var productImage = 'images.jfif.png';
 
       var listItem = document.createElement('li');
       listItem.classList.add('shopping-bag-item');

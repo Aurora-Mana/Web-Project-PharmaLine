@@ -14,6 +14,7 @@
     <h2>Register</h2>
 
     <?php
+          session_start();
           @include('config.php');
           error_reporting(E_ALL);
           ini_set('display_errors', 1);
@@ -29,6 +30,9 @@
             
             //Validation
             $errors = array();
+
+            $select = "SELECT * FROM user_form WHERE email='$email' && password = '$pass'";
+            $result = mysqli_query($conn, $select);
 
             //Check for empty values
             if(empty($name) OR empty($email) OR empty($pass) OR empty($cpass)){
@@ -48,6 +52,10 @@
               array_push($errors, "Password does not match");
             }
 
+             if(mysqli_num_rows($result)>0){
+              array_push($errors, "User already exists");
+             }
+
             //we need errors to be an empty array
             if(count($errors)>0){
               foreach ($errors as $error) {
@@ -56,7 +64,10 @@
             }
               else {
 
-                  $sql = "INSERT INTO user_form(full_name, email, password, user_type) VALUES (?, ?, ?, ?)";
+                $insert = "INSERT INTO user_form (full_name, email, password, user_type) VALUES ('$name', '$email', '$passwordHash', '$user_type')";
+                mysqli_query($conn, $insert);
+                header('location: login.php');
+                
                   
               }
          }

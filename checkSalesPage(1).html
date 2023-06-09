@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/styleCheckSales.css">
+</head>
+<body>
+
+  
+  <div class="sidebar">
+    <div class="icon-container">
+      <div class="logo-sidebar">
+        <img src="image/Logo.png" alt="Logo" class="logo">
+        <img src="image/PharmaLineNameLogo.png" alt="Logo" class="nameLogo">
+      </div>
+      <div class="total-icons">
+        <div class="icon" id="Home">
+          <i class="fas generate-dis"></i>
+          <img src="image/homeIcon.jpg" alt="Home Icon">
+          <span class="icon-name">Home</span>
+        </div>
+        <div class="icon" id="Generate-discount">
+          <i class="fas generate-dis"></i>
+          <img src="image/generateCodeIcon.png" alt="Discount Icon">
+          <span class="icon-name">Generate Discount</span>
+        </div>
+        <div class="icon" id="Blog">
+          <i class="fas blog"></i>
+          <img src="image/logoIcon.png" alt="Blog Icon">
+          <span class="icon-name">Blog</span>
+        </div>
+        <div class="icon" id="Log-out">
+          <i class="fas log-out"></i>
+          <img src="image/user (1).png" alt="Bottom Icon">
+          <span class="icon-name">Log out</span>
+        </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="body-content">
+    <div class="generate-part">
+    <div class = "dates">
+      <label for="startDate">Start date</label>
+      <input type="date" name ="startDate" id="startDate" placeholder="Start Date" required>
+      <label for="endDate" id="endDateLabel">End date</label>
+      <input type="date" name="endDate" id="endDate" placeholder="End Date" required>
+    </div>
+    <div class = "white-pane">
+      
+    </div>
+
+    <div>
+        <button id="generateButton">Generate</button>
+    </div>
+    </div>
+  </div>
+  
+
+  <script src="assets\js\checkSalesPage.js"></script>
+</body>
+</html>

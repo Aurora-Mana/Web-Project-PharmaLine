@@ -1,3 +1,47 @@
+<?php
+session_start();
+
+if(isset($_POST['submit'])){
+  $email = $_POST["email"];
+  $pass = $_POST["password"];
+  $user_type = $_POST["user_type"];
+
+  $select = "SELECT * FROM user_form WHERE email='$email' AND user_type='$user_type'";
+  $result = mysqli_query($conn, $select);
+
+  if(mysqli_num_rows($result) > 0){
+    $row = mysqli_fetch_array($result);
+
+    if(password_verify($pass, $row['password'])){
+      if($user_type == 'Admin'){
+        $_SESSION['admin_email'] = $row['email'];
+        header('location:../homePageAdmin.html');
+      }
+      elseif($user_type == 'Customer'){
+        $_SESSION['customer_name'] = $row['full_name'];
+        header('location:../index.php');
+      }
+      elseif($user_type == 'Clerk'){
+        $_SESSION['clerk_name'] = $row['full_name'];
+        header('location:../clerk1.html');
+      }
+      elseif($user_type == 'Manager'){
+        $_SESSION['manager_name'] = $row['full_name'];
+        header('location:../manager.php');
+      }
+    }
+    else{
+      $error[] = 'Incorrect email or password';
+    }
+  }
+  else{
+    $error[] = 'User does not exist';
+  }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,15 +58,25 @@
       <h2>PharmaLine</h2>
       <form>
         <form action="index.php" method="post">
+          <?php
+          if(isset($error)){
+            foreach ($error as $error) {
+              echo '<div class="alert alert-danger">'.$error.'</div>';
+            }
+          }
+          ?>
           <input type="email" placeholder="Email" required>
           <input type="password" placeholder="Password" required>
+          <select name="user_type" class="form-select mb-3" aria-label="Default select example" required>
+           <option selected disabled>Select User Type</option>
+           <option value="Admin">Admin</option>
+           <option value="Customer">Customer</option>
+           <option value="Clerk">Clerk</option>
+           <option value="Manager">Manager</option>
+        </select>
           <input type="submit" name="submit" id="rbutton" value="Log in">
           <p>Don't have an account? <a href="register.php">Register</a></p>
         </form>
-      <div class="form-switch">
-        <input type="checkbox" id="rememberMe">
-        <label for="rememberMe">Remember me</label>
-      </div>
     </div>
   </div>
 </body>

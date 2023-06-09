@@ -8,7 +8,7 @@ generateBtn.addEventListener('click', function() {
 const home = document.getElementById("Home");
 
 home.addEventListener('click' , function() {
-    window.location.href = "homePageAdmin.html";
+    window.location.href = "homePageAdmin.php";
 });
 
 const genDis = document.getElementById("Generate-discount");
