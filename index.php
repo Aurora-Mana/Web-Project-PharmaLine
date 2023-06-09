@@ -12,7 +12,7 @@
   <header>
     <img src="image/Logo.png" alt="Logo" class="logo">
     <div class="header-text">
-      <h1>PHARMALINE</h1>
+    <img src="image/PharmaLineNameLogo.png" alt="" class="nameLogo">
     </div>
     <div class="header-icons">
       <img src="image/search.png" alt="Search" class="header-icon">

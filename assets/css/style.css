@@ -189,3 +189,12 @@ header {
 body > div.body-content > h1 {
   margin-top: 174px;
 }
+
+.nameLogo{
+  width: 165px;
+  height: auto;
+  display: inline-block;
+  transition: opacity 0.3s;
+  opacity: 1;
+  margin-left: 80px;
+}

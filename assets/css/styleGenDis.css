@@ -20,7 +20,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: transparent;
     min-height: calc(100vh - 60px); /* Set minimum height to fill remaining viewport */
-    background-image: url("../../image/179521397963e7c23f873bdd95c7435d.w3841.h1280.png");
+    background-image: url("../../image/adminHomeBackground.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -56,27 +56,6 @@ body {
     transform: scale(1.1);
   }
   
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s;
-  }
-  
-  .overlay.active {
-    visibility: visible;
-    opacity: 1;
-  }
-  
   .body-content {
     margin-top: 5px
   }
@@ -96,35 +75,116 @@ body {
   .body-content {
     flex: 1;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     position: relative;
-  
+  }
+
+  /* white pane where active codes are displayed */
+
+  .infoTable{
+    margin-left: 120px;
   }
   
-  .white-pane {
-    background-color: white;
-    width: 650px;
-    height: 600px;
-    margin-left: 85px;
+  #activationTable {
+    width: 600px;
   }
   
-  #endDateLabel{
-    margin-left: 265px;
+  #activationTable th,
+  #activationTable td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  #activationTable thead {
+    background-color: #f2f2f2;
+  }
+  
+  #activationTable tbody tr {
+    background-color: #f9f9f9;
+  }
+  
+  #activationTable tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  #activationTable {
+    height: 200px; /* Adjust the height of the table container as per your preference */
+    overflow-y: scroll;
   }
   
   
-  
-  .dates{
-    margin-bottom: 25px;
-    margin-left: 85px;
+
+/* css for code generation*/
+.generate{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #generateField{
+      height: 35px;
+      width: 300px;
+  }
+
+  .codeValue input[type="radio"] {
+    margin-right: 18px; 
+    transform: scale(1.5);
+  }
+
+  .codeValue label {
+    margin-top: 5px;
+    margin-right: 10px; 
+    font-size: 18px; 
+  }
+
+  .codeValue{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 25px;
+  }
+
+  .codeValue input[type="date"] {
+    margin-right: 8px; 
+    transform: scale(1.5);
+  }
+
+  .dates label {
+    margin-top: 5px;
+    margin-left: 10px; 
+    font-size: 18px; 
   }
   
-  #generateButton{
-    margin-top: 25px;
-    margin-left: 85px;
+  #activateBtn{
+    margin-top: 50px;
+    width: 200px;
+  }
+
+  #generateField{
+    font-size: 25px;
+  }
+
+  .activation-result {
+    display: flex;
+    flex-direction: column;
   }
   
+  .activation-result > div {
+    display: flex;
+  }
+  
+  .activation-result > div:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  
+  .activation-result > div > span {
+    margin-right: 10px;
+  }
+
   /* css for sidebar */
 .sidebar {
   position: fixed;
@@ -231,12 +291,6 @@ body {
   .nameLogo{
     width: 175px;
     height: auto;
-  }
-
-  /* Edit text field */
-  #generateField{
-    margin-left: 250px;
-    height: 25px;
   }
 
   /* Add images to icons */
