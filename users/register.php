@@ -14,16 +14,16 @@
     <h2>Register</h2>
 
     <?php
-          session_start();
           @include('config.php');
-          error_reporting(E_ALL);
-          ini_set('display_errors', 1);
+
+          session_start();
+
          if(isset($_POST['submit'])){
-            $name = $_POST["fullname"];
-            $email = $_POST["email"];
-            $pass = $_POST["password"];
-            $cpass = $_POST["repeat_password"];
-            $user_type = $_POST["user_type"];
+            $name = mysqli_real_escape_string($conn, $_POST['name']);
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+            $pass = $_POST['password'];
+            $cpass = $_POST['repeat_password'];
+            $user_type = $_POST['user_type'];
             
              //encrypt the password to increase security using hash function
              $passwordHash = password_hash($pass,PASSWORD_DEFAULT);
@@ -33,6 +33,11 @@
 
             $select = "SELECT * FROM user_form WHERE email='$email' && password = '$pass'";
             $result = mysqli_query($conn, $select);
+
+             //if user already exists
+             if(mysqli_num_rows($result)>0){
+              array_push($errors, "User already exists");
+             }
 
             //Check for empty values
             if(empty($name) OR empty($email) OR empty($pass) OR empty($cpass)){
@@ -52,10 +57,6 @@
               array_push($errors, "Password does not match");
             }
 
-             if(mysqli_num_rows($result)>0){
-              array_push($errors, "User already exists");
-             }
-
             //we need errors to be an empty array
             if(count($errors)>0){
               foreach ($errors as $error) {
@@ -64,25 +65,23 @@
             }
               else {
 
-                $insert = "INSERT INTO user_form (full_name, email, password, user_type) VALUES ('$name', '$email', '$passwordHash', '$user_type')";
+                $insert = "INSERT INTO user_form (name, email, password, user_type) VALUES ('$name', '$email', '$passwordHash', '$user_type')";
                 mysqli_query($conn, $insert);
                 header('location: login.php');
                 
                   
               }
-         }
+         };
       ?>
-      <form action="register.php" method="post">
+      <form action="" method="post">
       
-        <input type="text" name="fullname" required placeholder="Full Name">
-        <input type="email" name="email" required placeholder="Email">
-        <input type="password" name="password" required placeholder="Password">
-        <input type="password" name="repeat_password" required placeholder="Repeat Password">
+        <input type="text" name="name" placeholder="Full Name">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="repeat_password" placeholder="Repeat Password">
         
-         <select name="user_type" class="form-select mb-3" name="role" aria-label="Default select example" required>
-          <option selected value="custumer">Customer</option>
-          <option value="clerk">Clerk</option>
-          <option value="manager">Manager</option>
+         <select name="user_type" class="form-select mb-3" aria-label="Default select example" required>
+          <option value="user">Customer</option>
           <option value="admin">Admin</option>
  
         </select>
