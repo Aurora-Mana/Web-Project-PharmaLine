@@ -6,7 +6,7 @@ checkSB.addEventListener('click', function() {
 
 const genDis = document.getElementById("Generate-discount");
 genDis.addEventListener('click' , function() {
-    window.location.href = "generateDiscount.html";
+    window.location.href = "generateDiscount.php";
 });
 
 const blog = document.getElementById("Home");

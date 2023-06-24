@@ -1,3 +1,9 @@
+<?php
+@include('users/config.php');
+$query = "SELECT id, title FROM posts ORDER BY id DESC";
+$posts = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,50 +51,32 @@
 <section class="dashboard">
     <div class="container dashboard__container">
         <main>
-<<<<<<< HEAD
           <div class = "post__add">
             <h2>Manage Posts</h2>
             <button> <img src="image/additionIcon.png" alt="" id="addPost"></button>
           </div>  
-=======
-            <h2>Manage Posts</h2>
->>>>>>> dcc44e13bf829b7e2ff9a2eee280354ec89edc97
+          <?php if (mysqli_num_rows($posts) > 0) : ?>
             <table>
                 <thead>
                     <tr>
                         <th>Title</th>
-                        <th>Category</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
+                  <?php while($post = mysqli_fetch_assoc($posts)) : ?>
                     <tr>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Wild Life</td>
-                        <td><a href="edit-post.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
+                        <td><?=$post['title'] ?></td>
+                        <td><a href="editPost.php?id=<?= $post['id'] ?>"  class="btn sm">Edit</a></td>
+                        <td><a href="deletePost.php?id=<?= $post['id'] ?>" class="btn sm danger">Delete</a></td>
                     </tr>
-                    <tr>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Wild Life</td>
-                        <td><a href="edit-post.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Wild Life</td>
-                        <td><a href="edit-post.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</td>
-                        <td>Wild Life</td>
-                        <td><a href="edit-post.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                    </tr>
+                    <?php endwhile?>
                 </tbody>
             </table>
+            <?php else: ?>
+              <div class ="alert__message error"><?= "No posts found" ?> </div>
+            <?php endif?>
         </main>
     </div>
 </section>

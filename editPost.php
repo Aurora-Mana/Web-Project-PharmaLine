@@ -1,3 +1,15 @@
+<?php
+@include('users/config.php');
+if(isset($_GET ['id'])){
+  $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+  $query = "SELECT * FROM posts WHERE id=$id";
+  $result = mysqli_query($conn, $query);
+  $post = mysqli_fetch_assoc($result);
+  }
+  else{
+     header('location: blogAdmin.php');
+      }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Add blog post</title>
     <link rel="stylesheet" href="./assets/css/styleBlogPostAdmin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   
 </head>
 <body>
@@ -45,22 +58,22 @@
 <section class="form__section">
     <div class="container form__section-container">
         <h2>Add Post</h2>
-        <div class="alert__message error">
-            <p>This is an error message</p>
-        </div>
-        <form action="" enctype="multipart/form-data">
-            <input type="text" placeholder="Title">
-
-            <textarea rows="10" placeholder="Body"></textarea>
+  
+        <form action="editPostLogic.php" enctype="multipart/form-data" method="POST">
+        <input type="hidden" name="id" value="<?= $post['id'] ?>">
+            <input type="hidden" name="previous_thumbnail_name" value="<?= $post['thumbnail'] ?>">
+            
+            <input type="text" value = "<?= $post['title'] ?>" name="title" placeholder="Title">
+            <textarea rows="10" name = "body" placeholder="Body"> <?= $post['body'] ?></textarea>
             <div class="form__control inline">
-                <input type="checkbox" id="is_featured" checked>
+                <input type="checkbox" name="is_featured" id="is_featured" checked>
                 <label for="is_featured">Featured</label>
             </div>
             <div class="form__control">
                 <label for="thumbnail">Add Thumbnail</label>
-                <input type="file" id="thumbnail">
+                <input type="file" name="thumbnail" id="thumbnail">
             </div>
-            <button type="submit" class="btn">Add Post</button>
+            <button type="submit" class="btn-a" name="submit" value="submit">Save</button>
         </form>
     </div>
 </section>

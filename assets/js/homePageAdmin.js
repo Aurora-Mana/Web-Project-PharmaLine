@@ -5,17 +5,12 @@ checkSB.addEventListener('click', function() {
 
 const genDis = document.getElementById("Generate-discount");
 genDis.addEventListener('click' , function() {
-    window.location.href = "generateDiscount.html";
+    window.location.href = "generateDiscount.php";
 });
 
 const blog = document.getElementById("Blog");
 blog.addEventListener('click' , function() {
-    window.location.href = "blogAdmin.html";
-});
-
-const favProd = document.getElementById("Fav-prod");
-favProd.addEventListener('click' , function() {
-    window.location.href = "";
+    window.location.href = "blogAdmin.php";
 });
 
 const logOut = document.getElementById("Log-out");

@@ -11,7 +11,7 @@ checkS.addEventListener('click' , function() {
 
 const blog = document.getElementById("Blog");
 blog.addEventListener('click' , function() {
-    window.location.href = "blogAdmin.html";
+    window.location.href = "blogAdmin.php";
 });
 
 const logOut = document.getElementById("Log-out");

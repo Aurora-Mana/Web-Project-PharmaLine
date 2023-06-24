@@ -122,12 +122,12 @@
     transform: scale(1.1);
   }
   
-  .btn.sm {
+  .btn-a.sm {
     padding: 0.3rem 0.7rem;
     font-size: 0.8rem;
   }
   
-  .btn.danger {
+  .btn-a.danger {
     background: var(--color-red);
   }
   

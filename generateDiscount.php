@@ -23,8 +23,6 @@
             <span class="icon-name">Home</span>
           </div>
           <div class="icon" id="Check-sales">
-            <i class="fas check-sales"></i>
-            <img src="image/revenueIcon.png" alt="Sales Icon">
             <span class="icon-name">Check Sales</span>
           </div>
           <div class="icon" id="Blog">

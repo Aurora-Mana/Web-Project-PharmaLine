@@ -145,7 +145,7 @@ button:hover {
 
 .dashboard__container {
   display: grid;
-  grid-template-columns: 14rem auto;
+  grid-template-columns: 32rem auto;
   gap: 1rem;
   background: var(--color-gray-900);
   padding: 2rem;
@@ -174,7 +174,7 @@ button:hover {
 
 .dashboard main {
   margin-left: 1.5rem;
-  width: 100%; 
+  width: 150%; 
   text-align: left;
   table-layout: fixed;
 }
@@ -185,7 +185,8 @@ button:hover {
 }
 
 .dashboard main table {
-  width: 100%;
+  width: 150%;
+
   text-align: left;
 }
 
@@ -197,7 +198,7 @@ button:hover {
 }
 
 .dashboard main table thead {
-  width: 100%;
+  width: 150%;
 }
 
 .dashboard main table td {
@@ -342,10 +343,7 @@ button:hover {
   #Log-out img {
     max-width: 100%;
     max-height: 100%;
-<<<<<<< HEAD
   }
-
-
   
   .post__add {
     display: flex;
@@ -364,6 +362,4 @@ button:hover {
   .post__add button {
     margin-bottom: 30px;
     margin-left: 20px;
-=======
->>>>>>> dcc44e13bf829b7e2ff9a2eee280354ec89edc97
   }
