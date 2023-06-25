@@ -170,20 +170,12 @@ body > div.body-content > h1 {
 
 /* Bottom icon */
 .total-icons #Log-out{
-  margin-top: 570px;
+  margin-top: 220px;
 }
 
 /* Add images to icons */
 
-#Generate-discount img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-  #Check-sales img {
-    max-width: 100%;
-    max-height: 100%;
-  }
+
   
   #Blog img {
     max-width: 100%;
