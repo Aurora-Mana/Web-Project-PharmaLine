@@ -14,7 +14,7 @@ $result = mysqli_query($conn, $selectQuery);
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Generate Discount</title>
         <link rel="stylesheet" type="text/css" href="assets/css/styleGenDis.css">
         <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script> 
     </head>
@@ -51,7 +51,7 @@ $result = mysqli_query($conn, $selectQuery);
         </div>
         
         <div class="icon" id="Log-out">
-          <a href="users/logout.php">
+          <a href="../index.php">
           <i class="fa-solid fa-right-from-bracket" style="color: #222d3f;"></i>
           <span class="icon-name">Log Out</span></a>
         </div>
@@ -71,7 +71,8 @@ $result = mysqli_query($conn, $selectQuery);
           
           $insertQuery = "INSERT INTO discounts (code, percentage, start_date, end_date) VALUES ('$code', '$discount', '$startDate', '$endDate')";
           mysqli_query($conn, $insertQuery);
-        
+          header('location: generateDiscount.php');
+
         }?>
 
         <div class="generate">
@@ -119,7 +120,7 @@ $result = mysqli_query($conn, $selectQuery);
     <?php while($code = mysqli_fetch_assoc($result)) : ?>
       <tr>
         <td><?php echo $code['code']; ?></td>
-        <td><?php echo $code['discount'] . "%"; ?></td>
+        <td><?php echo $code['percentage'] . "%"; ?></td>
         <td><?php echo $code['start_date']; ?></td>
         <td><?php echo $code['end_date']; ?></td>
       </tr>

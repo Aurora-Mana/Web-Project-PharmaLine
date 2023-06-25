@@ -55,7 +55,7 @@ genBtn.addEventListener('click', function() {
   const activateBtn = document.getElementById("activateBtn");
 const activationTableBody = document.querySelector("#activationTable tbody");
 
-activateBtn.addEventListener("click", function() {
+/*activateBtn.addEventListener("click", function() {
   const codeInput = document.getElementById("generateField");
   const discountInput = document.querySelector('input[name="discount"]:checked');
   const startDateInput = document.getElementById("startDate");
@@ -94,4 +94,4 @@ activateBtn.addEventListener("click", function() {
     // Scroll to the bottom of the table
     activationTableBody.scrollTop = activationTableBody.scrollHeight;
   }
-});
+});*/

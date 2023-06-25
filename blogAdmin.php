@@ -47,7 +47,7 @@ $posts = mysqli_query($conn, $query);
         </div>
         
         <div class="icon" id="Log-out">
-          <a href="users/logout.php">
+          <a href="index.php">
           <i class="fa-solid fa-right-from-bracket" style="color: #222d3f;"></i>
           <span class="icon-name">Log Out</span></a>
         </div>
