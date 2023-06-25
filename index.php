@@ -124,7 +124,17 @@
         <p>Email: info@pharmaline.com</p>
         <p>Phone: +1 123 456 7890</p>
       </div>
-</div>
+    </div>
+    <div class="col-md-4">
+    <div class="footer-section social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
   </div>
   <div class="footer-bottom">
     <div class="container">
