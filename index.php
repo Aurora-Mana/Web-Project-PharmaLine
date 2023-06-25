@@ -121,7 +121,7 @@
       </div>
       <div class="col-md-4">
         <h4>Contact Information</h4>
-        <p>123 Main Street, City, Country</p>
+        <p>123 Main Street, Tirane, Albania</p>
         <p>Email: info@pharmaline.com</p>
         <p>Phone: +1 123 456 7890</p>
       </div>
