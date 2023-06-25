@@ -354,3 +354,6 @@ margin-right: -608px;
 body > footer {
   margin-top: 26px;
 }
+body > div > div > div:nth-child(1) > div > center > h3 {
+  margin-top: 25px;
+}

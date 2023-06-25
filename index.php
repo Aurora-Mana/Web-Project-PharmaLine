@@ -30,10 +30,11 @@
     <div class="slide active">
       <img src="image/179521397963e7c23f873bdd95c7435d.w3841.h1280.png" alt="">
       <div class="info">
-        <br>
+        <br><br>
         <center>
        <h3>Welcome to PharmaLine!</h3>
        <p>Your best health partner</p>
+       <br>
        <button onclick="window.location.href='categories/combinedpages.html'">View products</button>
       </div>
 </center>
