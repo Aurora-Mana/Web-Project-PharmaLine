@@ -30,7 +30,7 @@
     <div class="slide active">
       <img src="image/179521397963e7c23f873bdd95c7435d.w3841.h1280.png" alt="">
       <div class="info">
-        <br><br><br>
+        <br>
         <center>
        <h3>Welcome to PharmaLine!</h3>
        <p>Your best health partner</p>
@@ -103,5 +103,39 @@
      </div>
     </div>
   <script src="assets/js/script.js"></script>
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4>About PharmaLine</h4>
+        <p>PharmaLine is your best health partner, providing a wide range of health and beauty products to enhance your well-being.</p>
+      </div>
+      <div class="col-md-4">
+        <h4>Quick Links</h4>
+        <ul>
+          <li>Home</a></li>
+          <li>Shop</a></li>
+          <li>Blog</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h4>Contact Information</h4>
+        <p>123 Main Street, City, Country</p>
+        <p>Email: info@pharmaline.com</p>
+        <p>Phone: +1 123 456 7890</p>
+      </div>
+</div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>&copy; 2023 PharmaLine. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
