@@ -1,3 +1,13 @@
+<?php
+  @include('users/config.php');
+  session_start();
+  $featured_query = "SELECT * FROM posts WHERE is_featured=1";
+      $featured_result = mysqli_query($conn, $featured_query);
+      $featured = mysqli_fetch_assoc($featured_result);
+
+      $query = "SELECT * FROM posts ORDER BY date_time DESC LIMIT 9";
+      $posts = mysqli_query($conn,$query);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,69 +21,76 @@
 <body>
     <header>
 
-        <img src="image/Logo.png" alt="Logo" class="logo">
+    <a href="index.php"><img src="image/Logo.png" alt="Logo" class="logo"></a>
 
         <div class="header-text">
           <img src="image/PharmaLineNameLogo.png" alt="" class="nameLogo">
         </div>
         <div class="header-icons">
-          <img src="image/search.png" alt="Search" class="header-icon">
-          <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
-          <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+        <img src="image/search.png" alt="Search" class="header-icon">
+      <a href="users/login.php">
+      <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()"></a>
+      <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+      <a href="blogUser.php">
+      <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>
+      
         </div>
       </header>
 
+      <?php
+      if(mysqli_num_rows($featured_result) == 1) :
+      ?>
     <section class="featured">
         <div class="container featured__container">
             <div class="post__thumbnail">
-                <img src="./image/1-la-roche-posay-anthelios-70-uv-correct.webp.png">
+                <img src="<?= $featured['thumbnail']?>">
             </div>
             <div class="post__info">
 
-                <h2 class="post__title"><a href="blogPostUser.html">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid!</a></h2>
-
+                <h2 class="post__title"><a href="blogPostUser.php?id=<?= $featured['id'] ?>"><?= $featured['title'] ?></a></h2>
                 <p class="post__body">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. At quidem reiciendis in fuga consequatur eligendi molestiae, magnam assumenda laborum inventore deleniti. Maiores vel quod at atque officiis sequi blanditiis cupiditate.
+                <?= substr($featured['body'],0 ,300) ?>...
                 </p>
                 <div class="post__author">
                     <div class="post__author-avatar">
                         <img src="./image/logoIcon.png">
                     </div>
                     <div class="post__author-info">
-                        <h5>By: Jane Doe</h5>
-                        <small>June 10, 2022 - 07:23</small>
+                        <h5>By: <?= $featured['author_id']?></h5>
+                        <small><?= date("M d, Y - H:i", strtotime($featured['date_time']))?></small>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    <?php endif ?>
 
     <section class="posts">
         <div class="container posts__container">
+          <?php while($post = mysqli_fetch_assoc($posts)) : ?>
             <article class="post">
                 <div class="post__thumbnail">
-                    <img src="./image/1-la-roche-posay-anthelios-70-uv-correct.webp.png">
+                    <img src="<?= $post['thumbnail'] ?>">
                 </div>
                 <div class="post__info">
                     <h3 class="post__title">
-                        <a href="blogPostUser.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, odit.</a>
-
+                    <a href="blogPostUser.php?id=<?= $post['id'] ?>"><?= $post['title'] ?></a>
                     </h3>
                     <p class="post__body">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad suscipit dolorem dolore dicta? Accusantium officiis hic modi corrupti expedita laborum laboriosam.
+                      <?= substr($post['body'],0 ,300) ?>...
                     </p>
                     <div class="post__author">
                         <div class="post__author-avatar">
                             <img src="./image/logoIcon.png">
                         </div>
                         <div class="post__author-info">
-                            <h5>By: John Mills</h5>
-                            <small>June 13, 2022 - 10:34</small>
+                            <h5>By: <?= $post['author_id']?></h5>
+                            <small><?= date("M d, Y - H:i", strtotime($post['date_time']))?></small>
                         </div>
                     </div>
                 </div>
             </article>
+          <?php endwhile ?>
         </div>
     </section>
 

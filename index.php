@@ -19,7 +19,7 @@
       <a href="users/login.php">
       <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()"></a>
       <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
-      <a href="blogUser.html">
+      <a href="blogUser.php">
       <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>   
     </div>
   

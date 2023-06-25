@@ -143,74 +143,56 @@ button:hover {
   display: none;
 }
 
+
 .dashboard__container {
-  display: grid;
-  grid-template-columns: 32rem auto;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  background: var(--color-gray-900);
+  background: #f1f4f5;
   padding: 2rem;
   margin-bottom: 5rem;
+  overflow-x: auto;
+  width: 80%;
 }
 
-.dashboard aside a {
-  background-color: var(--color-primary);
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  padding: 1.6rem;
-}
-
-.dashboard aside ul li:not(:last-child) a {
-  border-bottom: 1px solid var(--color-gray-900);
-}
-
-.dashboard aside a:hover {
-  background: var(--color-gray-700);
-}
-
-.dashboard aside a.active {
-  background-color: var(--color-gray-900);
-}
-
-.dashboard main {
-  margin-left: 1.5rem;
-  width: 150%; 
-  text-align: left;
+.dashboard__container table {
+  width: 100%;
   table-layout: fixed;
+  border-collapse: collapse;
 }
+
+.dashboard__container table th,
+.dashboard__container table td {
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--color-gray-200);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dashboard__container table th {
+  background: #adccd3;
+  color: var(--color-white);
+}
+
+
+.dashboard__container table tr {
+  text-align: center;
+}
+
+.dashboard__container table tr:hover td {
+  background-color:  #658894;
+  color: var(--color-white);
+  cursor: default;
+  transition: var(--transition);
+}
+
+
 
 .dashboard main h2 {
   margin: 0 0 2rem 0;
   line-height: 1;
-}
-
-.dashboard main table {
-  width: 150%;
-
-  text-align: left;
-}
-
-.dashboard main table th {
-  background: var(--color-gray-700);
-  padding: 0.8rem;
-  color: var(--color-white);
-  width: calc(100% / 4);
-}
-
-.dashboard main table thead {
-  width: 150%;
-}
-
-.dashboard main table td {
-  padding: 0.8rem;
-  border-bottom: 1px solid var(--color-gray-200);
-}
-
-.dashboard main table tr:hover td {
-  background-color: var(--color-bg);
-  color: var(--color-white);
-  cursor: default;
-  transition: var(--transition);
+  color: #000000;
 }
 
 

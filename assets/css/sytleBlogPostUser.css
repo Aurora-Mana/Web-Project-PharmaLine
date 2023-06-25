@@ -1,247 +1,260 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-  }
-  
-  .logo {
-    width: 80px;
-    height: auto;
-  }
-  
-  .header-text {
-    text-align: center;
-    flex-grow: 1;
-  }
-  
-  .header-text h1 {
-    font-size: 24px;
-    color: #333333;
-    margin: 0;
-  }
-  
-  .header-icons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .header-icons .header-icon {
-    width: 34px;
-    height: 34px;
-    margin-left: 12px;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .header-icons .header-icon:hover {
-    transform: scale(1.1);
-  }
-  
-  
-  .body-content {
-    margin-top: 60px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: transparent;
-    min-height: calc(98vh - 80px); /* Set minimum height to fill remaining viewport */
-    background-image: url("../../image/179521397963e7c23f873bdd95c7435d.w3841.h1280.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  .body-content h1 {
-    font-size: 36px;
-    color: #333333;
-    margin-top: 10px;
-    background-color: transparent;
-  }
-  
-  .body-content p {
-    font-size: 18px;
-    color: #666666;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-  
-  .body-content button {
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .body-content button:hover {
-    background-color: #45a049;
-    transform: scale(1.1);
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.3s;
-  }
-  
-  .overlay.active {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .form-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .form-container h2 {
-    font-size: 24px;
-    color: #333333;
-    margin-top: 0;
-  }
-  
-  .form-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form-container input {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #dddddd;
-    font-size: 16px;
-  }
-  
-  .form-container #rbutton {
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .form-container #rbutton:hover {
-    background-color: #45a049;
-    transform: scale(1.1);
-  }
-  
-  .form-container p {
-    font-size: 14px;
-    color: #666666;
-    margin-top: 10px;
-  }
-  
-  .form-container p a {
-    color: #4CAF50;
-    text-decoration: none;
-  }
-  
-  .form-switch {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-  }
-  
-  .form-switch label {
-    margin-left: 5px;
-  }
-  
-  .form-switch input[type="checkbox"] {
-    margin-right: 5px;
-  }
-  
-  
-  .body-content {
-    margin-top: 5px
-  }
-  body > div.body-content > h1 {
-    margin-top: 174px;
-  }
-  
-
-/* name logo */ 
-  .nameLogo{
-    width: 165px;
-    height: auto;
-    display: inline-block;
-    opacity: 1;
-  }
-
-/* single post */
-
-  p{
-    text-align: justify;
-    text-justify: inter-word;
-  }
-
-  h2{
-    text-align: left;
-  }
-
-
-  .postAuthor{
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.2rem;
-  }
-
-  .postAuthorAvatar{
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.8rem;
-    overflow: hidden;
-  }
-
-  .singlepost{
-    margin: 6rem 0 2rem;
-  }
-
-  .singlepostContainer{
-    --form-width: 40%;
-    background: #f1eeee;
-    padding: 1rem 2rem 2rem;
-  }
-
-  .singlepostThumbail{
-    margin-top: 1.5rem 0 1rem;
-  }
-
-.singlepostContainer p{
-    margin-top: 1rem;
-    line-height: 1.7;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 
+
+header {
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 65px;
+}
+
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+.header-text {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.header-text h1 {
+  font-size: 24px;
+  color: #333333;
+  margin: 0;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+}
+
+.header-icons .header-icon {
+  width: 34px;
+  height: 34px;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.header-icons .header-icon:hover {
+  transform: scale(1.1);
+}
+
+
+.body-content {
+  margin-top: 60px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  min-height: calc(98vh - 80px); /* Set minimum height to fill remaining viewport */
+  background-image: url("../../image/Blog_Background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.body-content h1 {
+  font-size: 36px;
+  color: #333333;
+  margin-top: 10px;
+  background-color: transparent;
+}
+
+.body-content p {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.body-content button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.body-content button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.form-container h2 {
+  font-size: 24px;
+  color: #333333;
+  margin-top: 0;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  font-size: 16px;
+}
+
+.form-container #rbutton {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.form-container #rbutton:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+.form-container p {
+  font-size: 14px;
+  color: #666666;
+  margin-top: 10px;
+}
+
+.form-container p a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.form-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form-switch label {
+  margin-left: 5px;
+}
+
+.form-switch input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+
+.body-content {
+  margin-top: 5px
+}
+body > div.body-content > h1 {
+  margin-top: 174px;
+}
+
+
+
+/* name logo */ 
+.nameLogo{
+width: 165px;
+height: auto;
+display: inline-block;
+transition: opacity 0.3s;
+opacity: 1;
+margin-left: 80px;
+}
+
+/* single post */
+
+p{
+  text-align: justify;
+  text-justify: inter-word;
+  
+}
+
+h2{
+  text-align: left;
+}
+
+
+.postAuthor{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.postAuthorAvatar{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.8rem;
+  overflow: visible;
+}
+
+.singlepost{
+  margin: 6rem 0 2rem;
+}
+
+.singlepostContainer{
+  --form-width: 40%;
+  background: #f1eeee;
+  padding: 1rem 2rem 2rem;
+}
+
+.singlepostThumbail{
+  margin-top: 1.5rem 0 1rem;
+}
+
+.singlepostContainer p{
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+img{
+height: 80%;
+width: 80%;
+margin-top: 25px;
+margin-bottom: 25px;
+}
 

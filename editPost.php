@@ -66,7 +66,7 @@ if(isset($_GET ['id'])){
             <input type="text" value = "<?= $post['title'] ?>" name="title" placeholder="Title">
             <textarea rows="10" name = "body" placeholder="Body"> <?= $post['body'] ?></textarea>
             <div class="form__control inline">
-                <input type="checkbox" name="is_featured" id="is_featured" checked>
+                <input type="checkbox" name="is_featured" id="is_featured" <?= $post['is_featured'] ? 'checked' : ''?>>
                 <label for="is_featured">Featured</label>
             </div>
             <div class="form__control">

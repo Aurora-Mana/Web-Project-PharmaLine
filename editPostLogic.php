@@ -1,6 +1,5 @@
 <?php
 @include('users/config.php');
- $errors = array();
 
  if (isset($_POST['submit'])) {
   $id = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -30,24 +29,26 @@
 
         // WORK ON NEW THUMBNAIL
         // Rename image
-        $time = time(); // make each image name upload unique using current timestamp
+        $time = time(); // generate a new timestamp
         $thumbnail_name = $time . $thumbnail['name'];
-        $thumbnail_tmp_name = $thumbnail['tmp_name'];
-        $thumbnail_destination_path = 'image/' . $thumbnail_name;
-
+        $thumbnail_tmp = $thumbnail['tmp_name'];
+        $thumbnail_path = 'image/' . $thumbnail_name;
+        move_uploaded_file($thumbnail_tmp, $thumbnail_path);
+        
     }
-    if(count($errors)>0){
-              foreach ($errors as $error) {
-                echo '<div class="alert alert-danger">'.$error.'</div>';
-              }
-            }
     
 
     // set thumbnail name if a new one was uploaded, else keep old thumbnail name
     $thumbnail_to_insert = $thumbnail_name ?? $previous_thumbnail_name;
 
-    $query = "UPDATE posts SET title='$title', body='$body', thumbnail='$thumbnail_to_insert', is_featured=$is_featured WHERE id=$id";
+    $query = "UPDATE posts SET title='$title', body='$body', thumbnail='$thumbnail_path', is_featured=$is_featured WHERE id=$id";
     $result = mysqli_query($conn, $query);
+
+    // Update other posts to remove the featured status if the current post is featured
+        if ($is_featured) {
+            $update_featured_query = "UPDATE posts SET is_featured=0 WHERE id!=$id";
+            mysqli_query($conn, $update_featured_query);
+        }
     }
 }
 header('location: blogAdmin.php');

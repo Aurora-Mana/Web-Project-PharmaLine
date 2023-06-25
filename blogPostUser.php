@@ -1,3 +1,16 @@
+<?php
+  @include('users/config.php');
+  session_start();
+  if(isset($_GET['id'])){
+    $id = filter_var($_GET['id'],FILTER_SANITIZE_NUMBER_INT );
+    $query ="SELECT * FROM posts WHERE id=$id";
+    $result = mysqli_query($conn, $query);
+    $post = mysqli_fetch_assoc($result);
+  }
+  else{
+    header('location: blogUser.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +22,17 @@
 </head>
 <body>
     <header>
-        <img src="image/Logo.png" alt="Logo" class="logo">
-        <div class="header-text">
+    <a href="index.php"><img src="image/Logo.png" alt="Logo" class="logo"></a>        <div class="header-text">
             <img src="image/PharmaLineNameLogo.png" alt="Logo" class="nameLogo">
         </div>
         <div class="header-icons">
-          <img src="image/search.png" alt="Search" class="header-icon">
-          <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
-          <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+        <img src="image/search.png" alt="Search" class="header-icon">
+        <a href="users/login.php">
+        <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()"></a>
+        <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+        <a href="blogUser.php">
+        <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>
+      
         </div>
       </header>
       
@@ -24,25 +40,23 @@
     <!-- Post -->
     <section class="singlepost">
         <div class="conatiner singlepostContainer"> 
-            <h2> title </h2>
+            <h2> <?= $post['title'] ?> </h2>
             <div class = "postAuthor">
                 <div class="postAuthorAvatar">
-                    <img src="image/5020_EXC_Cellular-Extreme-Moisture-Mask_Web_NP-300x300.png" alt="">
+                    <img src="image/logoIcon.png" alt="">
                 </div>
                 <div class="postAuthorInfo">
                     <h5>By: PharmaLine</h5>
-                    <small> June 7, 2023 - 2:</small>
+                    <small> <?= date("M d, Y - H:i", strtotime($post['date_time']))?></small>
                 </div>
             </div>
             <div class="singlepostThumbail">
-                <img src="image/1-la-roche-posay-anthelios-70-uv-correct.webp.png" alt="product">
+                <img src="<?= $post['thumbnail'] ?>" alt="product">
             </div>
             <p>
-                inner text where we will talk about a product or information regarding something health relaed yadayadayadayada 
+            <?= $post['body'] ?>
             </p>
-            <p>
-                multitiple inner text where we will talk about a product or information regarding something health relaed yadayadayadayada 
-            </p>
+            
         </div>
     </section>
     </div>
@@ -76,9 +90,7 @@
             <input type="password" name="repeat_password" placeholder="Repeat Password">
             
              <select name="user_type" class="form-select mb-3" name="role" aria-label="Default select example">
-              <option selected value="custumer">Customer</option>
-              <option value="clerk">Clerk</option>
-              <option value="manager">Manager</option>
+              <option selected value="customer">Customer</option>
               <option value="admin">Admin</option>
      
             </select>
