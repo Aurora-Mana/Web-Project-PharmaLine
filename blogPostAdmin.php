@@ -106,7 +106,7 @@
             <input type="text" name="title" placeholder="Title">
             <textarea rows="10" name = "body" placeholder="Body"></textarea>
             <div class="form__control inline">
-                <input type="checkbox" name="is_feature" id="is_featured">
+                <input type="checkbox" name="is_featured" id="is_featured">
                 <label for="is_featured">Featured</label>
             </div>
             <div class="form__control">

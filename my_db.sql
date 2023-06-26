@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 12:11 AM
+-- Generation Time: Jun 27, 2023 at 01:08 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -122,10 +122,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `body`, `thumbnail`, `date_time`, `author_id`, `is_featured`) VALUES
-(27, 'Featured post', 'first feature', 'image/Screenshot (20).png', '2023-06-25 02:13:26', 'PharmaLine', 1),
-(28, 'test', '  testestestset', 'image/1687660031Screenshot (20).png', '2023-06-25 02:13:40', 'PharmaLine', 0),
-(29, 'azf', '     asf', 'image/1687660010Screenshot (20).png', '2023-06-25 02:15:56', 'PharmaLine', 0),
-(30, 'Best Product', 'This is the newest bekjfsdfndsfndskfndskfnkdjfndskjfnjkdsfnjkdsfnkjdsfnkjsnfjksnfkjsfndskjfnsdkjfdsk', 'image/1_Toleriane_DblRepairMoisturizer_Tube.webp.png', '2023-06-26 22:08:13', 'PharmaLine', 0);
+(37, 'How To Use Cicaplast Baume B5', '  Created for dry, irritated, weakened, and sensitive skin, La Roche-Posay Cicaplast Baume B5 is a multi-repairing, fragrance-free balm that works quickly to soothe and nourish the skin. It’s a must-try for anyone with sensitive skin as the rich yet lightweight formula quickly reinforces the skin barrier and protects the epidermis from water loss and further irritation. \r\nAll skin types and people of all ages can use Cicaplast Baume B5. It is a great addition to any skincare routine for sensitive skin and safe for the whole family, including babies as young as six months old, as the formula has been tested under dermatological and pediatric control. The quick-absorbing and non-sticky balm can be used as a moisturizer for any skin type or as a spot treatment for eczema or irritated skin. There is no wrong way to use this safe and allergy-tested balm!\r\nCicaplast Baume B5 can be used once or twice a day, day or night, on cleansed skin. Apply a generous layer to the face, body, hands, or lips. It can also be applied to rough, cracked skin, diaper rash, or sensitive skin that’s prone to irritation and redness.', 'image/1687820513CICAPLAST_BAUME.jpg', '2023-06-26 22:53:46', 'PharmaLine', 1),
+(38, 'Geek & Gorgeous 101 C-Glow Serum | Doctors Review', 'The Geek & Gorgeous 101 C-Glow Serum is a super-light, water-like 15% Vitamin C + extra antioxidants (Ferulic Acid & a smaller amount of Vitamin E) formula to give the skin environmental protection, boost collagen, and even the skin tone.\r\nWhat differentiates this serum from most is the color. It is absolutely clear, while other Vitamin C products often have a slight yellow tint. As background: Ascorbic Acid is pretty unstable, and when it oxidizes, it turns yellow. This is how you can tell that it is losing its efficacy, a product that has turned a deep yellow probably no longer has a lot of Vitamin C still active.\r\nAs the Geek and Gorgeous C-Glow Serum is made fresh on order, there is minimal oxidation once the product arrives as opposed to a product that has been sitting in store for a little while already.\r\nVitamin C serums are preferred to be used in the mornings, to get the most out of the antioxidant effects, but using it at night is of course possible as well. Against common belief, it can be paired with most other substances, which is a great detail when considering adding this serum to your routine.', 'image/1687820817GREEK&GORGEOUS_CGLOW.jpg', '2023-06-26 22:58:57', 'PharmaLine', 0),
+(39, 'Tester post', 'Delete later', 'image/Kelly Hill - Free Instagram Highlights Template.png', '2023-06-26 23:07:30', 'PharmaLine', 0);
 
 -- --------------------------------------------------------
 
@@ -246,7 +245,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `products`
