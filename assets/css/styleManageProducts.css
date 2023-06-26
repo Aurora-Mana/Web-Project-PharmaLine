@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+   --green:#27ae60;
+   --black:#333;
+   --white:#fff;
+   --bg-color:#eee;
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --border:.1rem solid var(--black);
+}
+
+*{
+   font-family: 'Poppins', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   text-transform: capitalize;
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+
+.logo {
+    width: 60px;
+    height: auto;
+    margin-left: 10px;
+  }
+  
+  .header-text {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .header-text h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .header-icons .header-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+.btn{
+   display: block;
+   width: 100%;
+   cursor: pointer;
+   border-radius: .5rem;
+   margin-top: 1rem;
+   font-size: 1.7rem;
+   padding:1rem 3rem;
+   background: var(--green);
+   color:var(--white);
+   text-align: center;
+}
+
+.btn:hover{
+   background: var(--black);
+}
+
+.message{
+   display: block;
+   background: var(--bg-color);
+   padding:0.5rem 1rem;
+   font-size: 2rem;
+   color:var(--black);
+   margin-bottom: 0.5rem;
+   text-align: center;
+}
+
+.products{
+    margin-top: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    min-height: calc(100vh - 60px); /* Set minimum height to fill remaining viewport */
+    background-color: #c4dee5;
+ }
+
+.body-content{
+   max-width: 1200px;
+   padding:2rem;
+   margin:0 auto;
+}
+
+.product-form-container.centered{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   
+}
+
+.product-form-container form{
+   max-width: 50rem;
+   margin:0 auto;
+   padding:2rem;
+   border-radius: .5rem;
+   background: var(--bg-color);
+}
+
+.product-form-container form h3{
+   text-transform: uppercase;
+   color:var(--black);
+   margin-bottom: 1rem;
+   text-align: center;
+   font-size: 2.5rem;
+}
+
+.product-form-container form .box{
+   width: 100%;
+   border-radius: .5rem;
+   padding:1.2rem 1.5rem;
+   font-size: 1.7rem;
+   margin:1rem 0;
+   background: var(--white);
+   text-transform: none;
+}
+
+.product-display{
+   margin:3rem 0;
+   margin-left: 150px;
+}
+
+.product-display .product-display-table{
+   width: 100%;
+   text-align: center;
+}
+
+.product-display .product-display-table thead{
+   background: var(--bg-color);
+}
+
+.product-display .product-display-table th{
+   padding:1rem;
+   font-size: 2rem;
+}
+
+
+.product-display .product-display-table td{
+   padding:1rem;
+   font-size: 2rem;
+   border-bottom: var(--border);
+}
+
+.product-display .product-display-table .btn:first-child{
+   margin-top: 0;
+}
+
+.product-display .product-display-table .btn:last-child{
+   background: crimson;
+}
+
+.product-display .product-display-table .btn:last-child:hover{
+   background: var(--black);
+}
+
+
+@media (max-width:991px){
+
+   html{
+      font-size: 55%;
+   }
+
+}
+
+@media (max-width:768px){
+
+   .product-display{
+      overflow-y:scroll;
+   }
+
+   .product-display .product-display-table{
+      width: 80rem;
+   }
+
+}
+
+@media (max-width:450px){
+
+   html{
+      font-size: 50%;
+   }
+
+}
+
+  
+  /* css for sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100vh;
+    background-color: #ffffff;
+    transition: width 0.3s;
+    z-index: 999;
+  }
+  
+  .icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding-top: 20px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    background-color: #c0cfcf;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+  }
+  
+  .icon i {
+    color: #fff;
+    font-size: 20px;
+  }
+  
+  .icon-name {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+    display: none;
+    color: #333;
+    white-space: nowrap;
+  }
+  
+  .sidebar:hover {
+    width: 250px;
+  }
+  
+  .icon:hover {
+    background-color: #a7b5b5;
+  }
+  
+  .sidebar:hover .icon-name {
+    display: block;
+  }
+  
+  .sidebar:hover .total-icons {
+    margin-left: -145px;
+  }
+  
+  /* Pharmaline writting in logo */
+  .nameLogo{
+    display: none;
+    opacity: 0;
+  }
+  .sidebar:hover .nameLogo{
+    width: 165px;
+    height: auto;
+    display: inline-block;
+    transition: opacity 0.3s;
+    opacity: 1;
+    margin-left: 80px;
+  }
+  
+  .sidebar:hover .logo-sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: -90px;
+  }
+  
+  .logo-sidebar{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar:hover .logo{
+    display: none;
+  }
+  
+  /* Bottom icon */
+  .total-icons #Log-out{
+    margin-top: 220px;
+  }
+  
+  /* Add images to icons */
+  
+  
+    
+    #Blog img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    #Fav-prod img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
