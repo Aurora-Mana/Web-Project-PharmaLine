@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2023 at 06:02 AM
+-- Generation Time: Jun 27, 2023 at 12:11 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `brands`
+--
+
+CREATE TABLE `brands` (
+  `brand_id` int(11) NOT NULL,
+  `brand_title` varchar(223) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cart`
 --
 
@@ -35,6 +46,18 @@ CREATE TABLE `cart` (
   `price` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
   `image` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL,
+  `category_name` varchar(224) NOT NULL,
+  `category_img` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -101,7 +124,8 @@ CREATE TABLE `posts` (
 INSERT INTO `posts` (`id`, `title`, `body`, `thumbnail`, `date_time`, `author_id`, `is_featured`) VALUES
 (27, 'Featured post', 'first feature', 'image/Screenshot (20).png', '2023-06-25 02:13:26', 'PharmaLine', 1),
 (28, 'test', '  testestestset', 'image/1687660031Screenshot (20).png', '2023-06-25 02:13:40', 'PharmaLine', 0),
-(29, 'azf', '     asf', 'image/1687660010Screenshot (20).png', '2023-06-25 02:15:56', 'PharmaLine', 0);
+(29, 'azf', '     asf', 'image/1687660010Screenshot (20).png', '2023-06-25 02:15:56', 'PharmaLine', 0),
+(30, 'Best Product', 'This is the newest bekjfsdfndsfndskfndskfnkdjfndskjfnjkdsfnjkdsfnkjdsfnkjsnfjksnfkjsfndskjfnsdkjfdsk', 'image/1_Toleriane_DblRepairMoisturizer_Tube.webp.png', '2023-06-26 22:08:13', 'PharmaLine', 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +148,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `image`, `category`) VALUES
-(65, 'ANTHELIOS', 'UV CORRECT FACE SUNSCREEN SPF 70 WITH NIACINAMIDE', 8, 22, 'BBomb-square-2023_360x.webp.png', 'Bodycare');
+(66, 'hi', 'jhbhbkjbkbkj', 55, 33, '1_Hydraphase-HA-Light.png', 'Skincare');
 
 -- --------------------------------------------------------
 
@@ -153,6 +177,12 @@ INSERT INTO `user_form` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`brand_id`);
 
 --
 -- Indexes for table `cart`
@@ -216,13 +246,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `user_form`
