@@ -17,12 +17,12 @@ if(isset($_POST['add_product'])){
    $product_image_folder = 'image/'.$product_image;
     
 
-   if(empty($product_name) || empty($product_price)|| empty($product_keyword) || empty($product_image || empty($product_info) || empty($product_quantity)|| empty($product_category|| empty($product_brand)))){
+   if(empty($product_name) || empty($product_price) || empty($product_keyword) || empty($product_image) || empty($product_info) || empty($product_quantity) || empty($product_category) || empty($product_brand)){
       $message[] = 'please fill out all';
    }
    else{
-      $insert = "INSERT INTO products (product_name, product_keyword, description, price, quantity, image, category, brand) VALUES('$product_name', '$product_keyword','$product_info','$product_price','$product_quantity', '$product_image', '$product_category','$product_brand')";
-      $upload = mysqli_query($conn,$insert);
+    $insert = "INSERT INTO products (product_name, product_keyword, description, price, quantity, image, category, brand) VALUES ('$product_name', '$product_keyword', '$product_info', '$product_price', '$product_quantity', '$product_image', '$product_category', '$product_brand')";
+    $upload = mysqli_query($conn, $insert);
       if($upload){
          move_uploaded_file($product_image_tmp_name, $product_image_folder);
          $message[] = 'new product added successfully';

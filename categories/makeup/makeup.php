@@ -8,24 +8,25 @@ $loggedIn = isset($_SESSION['user_id']); // Set $loggedIn based on whether user_
 $user_id = $_SESSION['user_id'] ?? null; // Assign the value of user_id if set, or null if not set
 
 
-if(isset($_POST['add_to_cart'])){
-$product_id = $row['product_id'];
-$product_name = $row['product_name'];
-$product_price = $row['price'];
-$product_quantity = $row['quantity'];
-$product_image = $row['image'];
-$product_category = $row['category'];
 
-$select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$product_name' AND user_id = '$user_id'");
+if(isset($_POST['add_to_cart'])){
+  $product_name = $_POST['product_name'];
+  $product_price = $_POST['price'];
+  $product_image = $_POST['product_image'];
+  $product_quantity = 1;
+
+   $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE product_name = '$product_name' AND user_id = '$user_id'");
 
    if(mysqli_num_rows($select_cart) > 0){
       $message[] = 'product already added to cart';
    }else{
-      $insert_product = mysqli_query($conn, "INSERT INTO `cart`(user_id, product_id, product_name, price, image, quantity) VALUES('$user_id','$product_id','$product_name', '$product_price', '$product_image', '$product_quantity')");
+      $insert = "INSERT INTO cart (user_id, product_name, price, image, quantity) VALUES('$user_id','$product_name', '$product_price', '$product_image', '$product_quantity')";
+      $insert_product = mysqli_query($conn,$insert);
       $message[] = 'product added to cart succesfully';
    }
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
