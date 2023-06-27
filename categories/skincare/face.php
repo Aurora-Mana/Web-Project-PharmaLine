@@ -31,83 +31,10 @@ if(isset($_POST['add_to_cart'])){
   <title>Face Page</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="../../assets/css/styleProductPage.css">
+ 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
-  <style>
-    body {
-     background-image: url('../../image/beauty-background-various-eco-friendly-cosmetic-skin-care-products-beauty-background-various-eco-friendly-cosmetic-184476996.png');
-     background-size: cover;
-     background-repeat: no-repeat;
-     margin: 0;
-     padding: 0;
-     height: 100vh;
-     width: auto;
-}
-
-  .container {
-  margin: 0 auto;
-  padding: 20px;
-  color:   rgba(0, 0, 0, 0.5);
-  margin-top: -17px;
-  text-align: center; /* Center the text */
-
-
-}
-
-.header {
-  font-size: 48px; /* Increase the font size for "SKIN CARE" */
-  margin-bottom: 20px;
-  text-align: right;
-}
-
-.category {
-  font-size: 24px; /* Increase the font size for category names */
-  margin-bottom: 10px;
-  text-align: right;
-}
-
-    .category-link {
-      text-decoration: underline;
-      color: white;
-    }
-
-    /* Additional styles for header section */
-    header {
-      background-color: #fff;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-    }
-     
-    .products{
-       display: grid;
-       grid-template-columns: repeat(3, 2fr);
-       gap: 3rem;
-       margin-bottom: 6rem;;
-       margin-top: 20px;
-       margin-left: 50px;
-    }
-
-    .logo {
-      width: 50px;
-      height: 50px;
-    }
-
-    .header-text {
-      margin-left: 20px;
-    }
-
-    .header-icons {
-      margin-left: auto;
-    }
-
-    .header-icon {
-      width: 30px;
-      height: 30px;
-      margin-left: 10px;
-    }
-  </style>
+ 
 </head>
 <body>
   <header>
