@@ -32,17 +32,10 @@ if(isset($_POST['add_to_cart'])){
 <head>
   <title>Pharmaline - SkinCode Products</title>
   <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../assets/css/styleProductPage.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
   
-  .products{
-       display: grid;
-       grid-template-columns: repeat(3, 2fr);
-       gap: 3rem;
-       margin-bottom: 6rem;;
-       margin-top: 20px;
-       margin-left: 50px;
-    }
 
     .product-box img {
       width: 150px;
