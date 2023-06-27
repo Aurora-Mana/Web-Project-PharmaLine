@@ -16,13 +16,11 @@
             if(password_verify($pass, $user['password'])){
               
                 if($user['user_type'] == 'admin'){
-
-                $_SESSION['admin_name'] = $row['name'];
+                $_SESSION['admin_id'] = $user['user_id'];
                 header('Location: ../homePageAdmin.php');
   
                 }elseif($user['user_type'] == 'user'){
-  
-                 $_SESSION['user_name'] = $row['name'];
+                 $_SESSION['user_id'] = $user['user_id'];
                 header('Location: ../index.php');
                }
             }

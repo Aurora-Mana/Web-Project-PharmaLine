@@ -44,12 +44,19 @@ session_start();
         <i class="fa-solid fa-tags" style="color: #0c182c;"></i>
           <span class="icon-name">Generate Discount</span>
         </div>
+
         <div class="icon" id="Blog">
           <i class="fas blog"></i>
           <img src="image/logoIcon.png" alt="Blog Icon">
           <span class="icon-name">Blog</span>
         </div>
         
+        <div class="icon" id="ManageProducts">
+          <a href="manageProducts.php">
+          <i class="fa-solid fa-list-check" style="color: #25395b;"></i>
+          <span class="icon-name">Manage Products</span></a>
+        </div>
+
         <div class="icon" id="Log-out">
           <a href="users/logout.php">
           <i class="fa-solid fa-right-from-bracket" style="color: #222d3f;"></i>

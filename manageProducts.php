@@ -5,9 +5,11 @@
 if(isset($_POST['add_product'])){
 
    $product_name = $_POST['product_name'];
+   $product_keyword = $_POST['product_keyword'];
    $product_info = $_POST['product_info'];
    $product_price = $_POST['product_price'];
    $product_category = $_POST['category'];
+   $product_brand = $_POST['brand'];
    $product_quantity = $_POST['product_quantity'];
 
    $product_image = $_FILES['product_image']['name'];
@@ -15,11 +17,11 @@ if(isset($_POST['add_product'])){
    $product_image_folder = 'image/'.$product_image;
     
 
-   if(empty($product_name) || empty($product_price) || empty($product_image || empty($product_info) || empty($product_quantity))){
+   if(empty($product_name) || empty($product_price)|| empty($product_keyword) || empty($product_image || empty($product_info) || empty($product_quantity)|| empty($product_category|| empty($product_brand)))){
       $message[] = 'please fill out all';
    }
    else{
-      $insert = "INSERT INTO products (name, description, price, quantity, image, category) VALUES('$product_name', '$product_info','$product_price','$product_quantity', '$product_image', '$product_category')";
+      $insert = "INSERT INTO products (product_name, product_keyword, description, price, quantity, image, category, brand) VALUES('$product_name', '$product_keyword','$product_info','$product_price','$product_quantity', '$product_image', '$product_category','$product_brand')";
       $upload = mysqli_query($conn,$insert);
       if($upload){
          move_uploaded_file($product_image_tmp_name, $product_image_folder);
@@ -33,7 +35,7 @@ if(isset($_POST['add_product'])){
 
 if(isset($_GET['delete'])){
    $id = $_GET['delete'];
-   mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+   mysqli_query($conn, "DELETE FROM products WHERE product_id = $id");
    header('location: manageProducts.php');
 };
 
@@ -63,7 +65,7 @@ if(isset($_GET['delete'])){
       
       <div class="icon" id="Home">
       <i class="fa-solid fa-house" style="color: #21324f;"></i>
-      <a href="#">
+      <a href="homePageAdmin.php">
           <span class="icon-name">Home</span></a>
         </div>
      
@@ -114,9 +116,11 @@ if(isset($message)){
       <form action="manageProducts.php" method="post" enctype="multipart/form-data">
         <h3>Add new products</h3>
         <input type="text" name="product_name" id="product_name" placeholder="Enter product name" class="box">
+        <input type="text" name="product_keyword" id="product_keyword" placeholder="Enter product keywords" class="box">
         <input type="text" name="product_info" id="product_info" placeholder="Enter product information" class="box">
         <input type="text" name="category" id="category" placeholder="Enter product category" class="box">
-        <input type="number" name="product_price" id="product_price" placeholder="Enter product price" class="box">
+        <input type="text" name="brand" id="brand" placeholder="Enter product brand" class="box">
+        <input type="text" name="product_price" id="product_price" placeholder="Enter product price" class="box">
         <input type="number" name="product_quantity" id="product_quantity" placeholder="Enter product quantity" class="box">
         <input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box">
          <input type="submit" class="btn" name="add_product" value="add product">
@@ -136,6 +140,7 @@ if(isset($message)){
             <th>product name</th>
             <th>product description</th>
             <th>product category</th>
+            <th>product brand</th>
             <th>product quantity</th>
             <th>product price</th>
             <th>action</th>
@@ -144,14 +149,15 @@ if(isset($message)){
          <?php while($row = mysqli_fetch_assoc($select)){ ?>
          <tr>
             <td><img src="image/<?php echo $row['image']; ?>" height="100" alt=""></td>
-            <td><?php echo $row['name']; ?></td>
+            <td><?php echo $row['product_name']; ?></td>
             <td><?php echo $row['description']; ?></td>
             <td><?php echo $row['category']; ?></td>
+            <td><?php echo $row['brand']; ?></td>
             <td><?php echo $row['quantity']; ?></td>
             <td>$<?php echo $row['price']; ?>/-</td>
             <td>
-              <a href="productUpdate.php?edit=<?php echo $row['id']; ?>" class="btn"><i class="fas fa-edit"></i>edit</a>
-              <a href="manageProducts.php?delete=<?php echo $row['id']; ?>" class="btn"> <i class="fas fa-trash"></i>delete </a>
+              <a href="productUpdate.php?edit=<?php echo $row['product_id']; ?>" class="btn"><i class="fas fa-edit"></i>edit</a>
+              <a href="manageProducts.php?delete=<?php echo $row['product_id']; ?>" class="btn"> <i class="fas fa-trash"></i>delete </a>
             </td>
          </tr>
       <?php } ?>

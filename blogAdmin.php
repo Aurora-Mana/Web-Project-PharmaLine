@@ -45,6 +45,13 @@ $posts = mysqli_query($conn, $query);
           <img src="image/logoIcon.png" alt="Blog Icon">
           <span class="icon-name">Blog</span>
         </div>
+
+        <div class="icon" id="ManageProducts">
+          <a href="manageProducts.php">
+          <i class="fa-solid fa-list-check" style="color: #25395b;"></i>
+          <span class="icon-name">Manage Products</span></a>
+        </div>
+
         
         <div class="icon" id="Log-out">
           <a href="index.php">

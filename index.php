@@ -1,3 +1,7 @@
+<?php
+@include('config.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +39,7 @@
        <h3>Welcome to PharmaLine!</h3>
        <p>Your best health partner</p>
        <br>
-       <button onclick="window.location.href='categories/combinedpages.html'">View products</button>
+       <button onclick="window.location.href='categories/combinedpages.php'">View products</button>
       </div>
 </center>
       </div>
@@ -45,10 +49,10 @@
          <div class="info">
           <div class="skincare">
           <h3>SKIN CARE</h3>
-         <a href="categories/skincare/skincode.html"><p class="category" id="skinc">SkinCode</p></a>
-         <a href="categories/skincare/Geekandgorgeus.html"><p class="category" id="skinc">Geek&Gorgeous</p></a>
-         <a href="categories/skincare/larocheposay.html"></a><p class="category" id="skinc">La Roche Posay</p>
-         <a href="categories/skincare/YouthLab.html"> <p class="category" id="skinc">YouthLab</p></a>
+         <a href="categories/skincare/skincode.php"><p class="category" id="skinc">SkinCode</p></a>
+         <a href="categories/skincare/Geekandgorgeus.php"><p class="category" id="skinc">Geek&Gorgeous</p></a>
+         <a href="categories/skincare/larocheposay.php"></a><p class="category" id="skinc">La Roche Posay</p>
+         <a href="categories/skincare/YouthLab.php"> <p class="category" id="skinc">YouthLab</p></a>
           </div>
         </div>
       </div>

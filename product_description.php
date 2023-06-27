@@ -1,3 +1,8 @@
+<?php
+include 'users/config.php';
+$select = mysqli_query($conn, "SELECT * FROM products");
+$row = mysqli_fetch_assoc($select);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -148,14 +153,14 @@
     }
 
     .product-image:hover .thumbnail-image {
-      display: block;
+      display: block;}
 
     .product-info {
       margin-top: 10px;
       height: 50px;
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
-    }
+    
     body > div.product-description > div.product-image {
     margin-top: 326px;
     
@@ -255,8 +260,8 @@ body > div.product-info > p:nth-child(2) {
       </div>
     </div>
     <div class="product-details">
-      <h2>Product Name</h2>
-      <img src="image/la4169lce0-la-roche-posay-logo-la-roche-posay-logo-ufs-mount-gambier.png" alt="Product Icon" class="product-icon">
+      <h2><?php echo $row['product_name'];?></h2>
+      <img src="image/<?php echo $row['image']; ?>" alt="Product Icon" class="product-icon">
       <p>A water-activated cleansing foaming gel to gently regulate surface oil.</br>
 
         Skin Type: All skin types, especially normal to combination</br>
@@ -264,7 +269,7 @@ body > div.product-info > p:nth-child(2) {
         Texture: Gel cleanser
       </br>
         Also available in XL (380ml).</p>
-      <p>Price: $38.00</p>
+      <p>Price: $<?php $row['price'];?></p>
       <button class="add-to-bag" onclick="addToBag()">Add to Bag</button>
     </div>
   </div>
@@ -278,6 +283,7 @@ body > div.product-info > p:nth-child(2) {
 
   <div class="product-info">
     <h3>SKINCODE ESSENTIALS PURIFYING CLEANSING GEL</h3>
+    <p><?php $row['description'];?></p>
     <p>The Purifying Cleansing Gel is ideal for removing excess oil, dirt and make-up. It deeply cleanses the skin, while regulating sebum secretion and respecting </br>the skin’s natural protective barrier.</br> This high-performance water-activated foaming cleansing gel rinses easily and leaves the skin completely cleansed and refreshed, without it feeling tight or dry.</br>It is formulated with the healing, soothing and regenerating properties of CM-Glucan, in addition to moisturizing Pro-Vitamin B5, calming Chamomile Extract,</br> anti-inflammatory Calendula Extract and oil production regulating Nettle Extract. Making it suitable for all skin types, especially normal and combination skin.
   
 

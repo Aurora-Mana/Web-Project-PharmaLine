@@ -112,14 +112,16 @@ html{
    padding:2rem;
    border-radius: .5rem;
    background: var(--bg-color);
+   border-color: orange;
 }
 
 .product-form-container form h3{
    text-transform: uppercase;
-   color:var(--black);
+   color: rgb(238, 179, 69);
    margin-bottom: 1rem;
    text-align: center;
-   font-size: 2.5rem;
+   font-size: 32px;
+   font-family: 'American Typewriter', serif;
 }
 
 .product-form-container form .box{
@@ -134,12 +136,13 @@ html{
 
 .product-display{
    margin:3rem 0;
-   margin-left: 150px;
+   margin-left: 100px;
 }
 
 .product-display .product-display-table{
    width: 100%;
    text-align: center;
+   font-family: 'Palatino, URW Palladio L', serif;
 }
 
 .product-display .product-display-table thead{
@@ -200,120 +203,153 @@ html{
 }
 
   
-  /* css for sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 100vh;
-    background-color: #ffffff;
-    transition: width 0.3s;
-    z-index: 999;
+ /* css for sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 95px;
+  height: 100vh;
+  background-color: #ffffff;
+  transition: width 0.3s;
+  z-index: 999;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 20px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: #c0cfcf;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.icon i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.icon-name {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  transform: translateY(-50%);
+  display: none;
+  color: #333;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.sidebar:hover {
+  width: 250px;
+}
+
+.icon:hover {
+  background-color: #a7b5b5;
+}
+
+.sidebar:hover .icon-name {
+  display: block;
+}
+
+.sidebar:hover .total-icons {
+  margin-left: -145px;
+}
+
+/* Pharmaline writting in logo */
+.nameLogo{
+  display: none;
+  opacity: 0;
+}
+.sidebar:hover .nameLogo{
+  width: 165px;
+  height: auto;
+  display: inline-block;
+  transition: opacity 0.3s;
+  opacity: 1;
+  margin-left: 80px;
+}
+
+.sidebar:hover .logo-sidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: -90px;
+}
+
+.logo-sidebar{
+  width: 60px;
+  height: 60px;
+  margin-bottom: 50px;
+}
+
+.sidebar:hover .logo{
+  display: none;
+}
+
+/* Bottom icon */
+.total-icons #Log-out{
+  margin-top: 192px;
+}
+
+/* Add images to icons */
+
+#Generate-discount img {
+    max-width: 100%;
+    max-height: 100%;
   }
   
-  .icon-container {
+  #Check-sales img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  #Blog img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  #Fav-prod img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  
+  #Log-out img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .post__add {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    padding-top: 20px;
   }
   
-  .icon {
-    width: 40px;
-    height: 40px;
-    background-color: #c0cfcf;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    position: relative;
+  #addPost  {
+    width: 20px;
+    height: 20px;
   }
-  
-  .icon i {
-    color: #fff;
-    font-size: 20px;
-  }
-  
-  .icon-name {
-    position: absolute;
-    top: 50%;
-    left: calc(100% + 10px);
-    transform: translateY(-50%);
-    display: none;
-    color: #333;
+
+  .post__add h2 {
     white-space: nowrap;
   }
   
-  .sidebar:hover {
-    width: 250px;
+  .post__add button {
+    margin-bottom: 30px;
+    margin-left: 20px;
   }
-  
-  .icon:hover {
-    background-color: #a7b5b5;
-  }
-  
-  .sidebar:hover .icon-name {
-    display: block;
-  }
-  
-  .sidebar:hover .total-icons {
-    margin-left: -145px;
-  }
-  
-  /* Pharmaline writting in logo */
-  .nameLogo{
-    display: none;
-    opacity: 0;
-  }
-  .sidebar:hover .nameLogo{
-    width: 165px;
-    height: auto;
-    display: inline-block;
-    transition: opacity 0.3s;
-    opacity: 1;
-    margin-left: 80px;
-  }
-  
-  .sidebar:hover .logo-sidebar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    margin-left: -90px;
-  }
-  
-  .logo-sidebar{
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-  }
-  
-  .sidebar:hover .logo{
-    display: none;
-  }
-  
-  /* Bottom icon */
-  .total-icons #Log-out{
-    margin-top: 220px;
-  }
-  
-  /* Add images to icons */
-  
-  
-    
-    #Blog img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-    
-    #Fav-prod img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-    

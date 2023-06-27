@@ -26,19 +26,87 @@ $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Body Page</title>
-  <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
+  <title>MAKE UP Page</title>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/styleProductPage.css">
+  <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <style>
+    body {
+  background-image: url('../../image/foundation-bottles-advertising-arrangement.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  color:   rgba(0, 0, 0, 0.5);
+  text-align: center; /* Center the text */
+  margin-top: -17px;
+
+}
+
+
+
+.header {
+  font-size: 48px; /* Increase the font size for "SKIN CARE" */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.category {
+  font-size: 24px; /* Increase the font size for category names */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+    .category-link {
+      text-decoration: underline;
+      color: white;
+    }
+
+    /* Additional styles for header section */
+    header {
+      background-color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
+
+    .header-text {
+      margin-left: 20px;
+    }
+
+    .header-icons {
+      margin-left: auto;
+    }
+
+    .header-icon {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
- <header>
-    <a href="../combinedpages.php">
-    <img src="../../image/bodycare.jpg" alt="" class="logob"></a>
-
-   
+  <header>
+    <img src="../../Logo.png" alt="Logo" class="logo">
+    <div class="header-text">
+      <h1>PHARMALINE</h1>
+    </div>
     <div class="header-icons">
       <img src="../../image/search.png" alt="Search" class="header-icon">
+      <img src="../../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
       <?php
       
       $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
@@ -48,20 +116,19 @@ $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$
       <a href="../../cart.php">
       <img src="../../image/shopping-bag (1).png" alt="Shopping" class="header-icon"> <span><?php echo $row_count; ?></span>
     </a>
-  
- </header>
-<!--fetching products -->
-
+    </div>
+    </div>
+  </header>
 
   <div class="products"> 
-
-     <?php
+  <?php
          $select = "SELECT * FROM  products ORDER BY rand()";
          $result_query = mysqli_query($conn, $select);
          while( $row = mysqli_fetch_assoc($result_query)){
-         if($row['category']=='body'){
+         if($row['category']=='makeup'){
      ?>
     <form action="" method="post">
+
        <div class='card' style='width: 18rem;'>
          <img alt='' class='icard-img-top' src='../../image/<?php echo $row['image']?>'>
           <div class='card-body'>
@@ -83,8 +150,9 @@ $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$
       <?php  
         };
       };
-     ?>
+     ?> 
    </div>
+
 
 <footer>
   <div class="container">
@@ -130,5 +198,6 @@ $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$
   </div>
 </footer> 
 
+  <script src="script.js"></script>
 </body>
 </html>

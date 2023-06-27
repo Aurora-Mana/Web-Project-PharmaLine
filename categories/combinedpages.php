@@ -1,3 +1,8 @@
+<?php
+@include('config.php');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,12 +34,6 @@
       height: calc(100% - 100px); /* Subtract header height from full viewport height */
     }
 
-    .header {
-      font-size: 48px;
-      margin-bottom: 20px;
-      text-align: center;
-      margin-right: 216px;
-    }
 
     .category {
       font-size: 24px;
@@ -45,31 +44,41 @@
     }
 
     header {
-      background-color: #fff;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-    }
+     background-color: #ffffff;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 5px; 
+     height: 110px;
+     }
 
     .logo {
-      width: 50px;
-      height: 50px;
+     width: 80px;
+     height: auto;
     }
 
-    .header-text {
-      margin-left: 20px;
+   .logo-name{
+    width: 200px;
+    height: auto; 
     }
 
-    .header-icons {
-      margin-left: auto;
-    }
+.header-icons {
+  display: flex;
+  align-items: center;
+}
 
-    .header-icon {
-      width: 30px;
-      height: 30px;
-      margin-left: 10px;
-    }
+.header-icons .header-icon {
+  width: 34px;
+  height: 34px;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
 
+.header-icons .header-icon:hover {
+  transform: scale(1.1);
+}
     
 
     /* Each section with a different background image */
@@ -210,14 +219,16 @@ body > div.container.makeup > div {
 <body>
   <header>
     <a href="../index.php">
-    <img src="../image/Logo.png" alt="Logo" class="logo"></a>
-    <div class="header-text">
-      <h1>PHARMALINE</h1>
-    </div>
+  <img src="../image/Logo.png" alt="Logo" class="logo"></a>
+    <img src="../image/PharmaLineNameLogo.png" alt="" class="logo-name">
+   
     <div class="header-icons">
       <img src="../image/search.png" alt="Search" class="header-icon">
-      <img src="../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <a href="../users/login.php">
+      <img src="../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()"></a>
       <img src="../image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+      <a href="../blogUser.php">
+      <img src="../image/blog1.png" alt="Shopping" class="header-icon"></a>   
     </div>
   </header>
 
@@ -226,18 +237,19 @@ body > div.container.makeup > div {
 
   <div class="container skin-care">
     <div class="header">SKIN CARE</div>
-    <a href="skincare/skincode.html"><p class="category" id="skinc">SkinCode</p></a>
-    <a href="skincare/Geekandgorgeus.html"><p class="category" id="skinc">Geek&Gorgeous</p></a>
-    <a href="skincare/larocheposay.html"></a><p class="category" id="skinc">La Roche Posay</p>
-    <a href="skincare/YouthLab.html"> <p class="category" id="skinc">YouthLab</p></a>
+    <a href="skincare/skincode.php"><p class="category" id="skinc">SkinCode</p></a>
+    <a href="skincare/Geekandgorgeus.php"><p class="category" id="skinc">Geek&Gorgeous</p></a>
+    <a href="skincare/larocheposay.php"></a><p class="category" id="skinc">La Roche Posay</p>
+    <a href="skincare/YouthLab.php"> <p class="category" id="skinc">YouthLab</p></a>
   </div>
 
   <!-- Body Care Page -->
   <div class="container body-care">
     <div class="header">BODY CARE</div>
+    <a href="bodycare/body.php">
     <p class="category" id="bodyc">Body Scrub</p>
     <p class="category" id="bodyc">Shower Gel</p>
-    <p class="category" id="bodyc">Body Lotion & Mist</p>
+    <p class="category" id="bodyc">Body Lotion & Mist</p></a>
   </div>
 
   <!-- Hair Care Page -->

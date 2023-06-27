@@ -45,6 +45,13 @@ if(isset($_GET ['id'])){
           <img src="image/generateCodeIcon.png" alt="Discount Icon">
           <span class="icon-name">Generate Discount</span>
         </div>
+
+        <div class="icon" id="ManageProducts">
+          <a href="manageProducts.php">
+          <i class="fa-solid fa-list-check" style="color: #25395b;"></i>
+          <span class="icon-name">Manage Products</span></a>
+        </div>
+
         <div class="icon" id="Log-out">
           <i class="fas log-out"></i>
           <img src="image/user (1).png" alt="Bottom Icon">

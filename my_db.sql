@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 12:11 AM
+-- Generation Time: Jun 27, 2023 at 10:37 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,41 +24,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brands`
---
-
-CREATE TABLE `brands` (
-  `brand_id` int(11) NOT NULL,
-  `brand_title` varchar(223) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cart`
 --
 
 CREATE TABLE `cart` (
   `id` int(100) NOT NULL,
   `user_id` int(100) NOT NULL,
-  `pid` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
   `price` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `category`
+-- Dumping data for table `cart`
 --
 
-CREATE TABLE `category` (
-  `category_id` int(11) NOT NULL,
-  `category_name` varchar(224) NOT NULL,
-  `category_img` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `cart` (`id`, `user_id`, `product_name`, `price`, `quantity`, `image`) VALUES
+(337, 6, 'Smth', 12, 1, '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png');
 
 -- --------------------------------------------------------
 
@@ -122,10 +105,9 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `body`, `thumbnail`, `date_time`, `author_id`, `is_featured`) VALUES
-(27, 'Featured post', 'first feature', 'image/Screenshot (20).png', '2023-06-25 02:13:26', 'PharmaLine', 1),
-(28, 'test', '  testestestset', 'image/1687660031Screenshot (20).png', '2023-06-25 02:13:40', 'PharmaLine', 0),
-(29, 'azf', '     asf', 'image/1687660010Screenshot (20).png', '2023-06-25 02:15:56', 'PharmaLine', 0),
-(30, 'Best Product', 'This is the newest bekjfsdfndsfndskfndskfnkdjfndskjfnjkdsfnjkdsfnkjdsfnkjsnfjksnfkjsfndskjfnsdkjfdsk', 'image/1_Toleriane_DblRepairMoisturizer_Tube.webp.png', '2023-06-26 22:08:13', 'PharmaLine', 0);
+(37, 'How To Use Cicaplast Baume B5', '  Created for dry, irritated, weakened, and sensitive skin, La Roche-Posay Cicaplast Baume B5 is a multi-repairing, fragrance-free balm that works quickly to soothe and nourish the skin. It’s a must-try for anyone with sensitive skin as the rich yet lightweight formula quickly reinforces the skin barrier and protects the epidermis from water loss and further irritation. \r\nAll skin types and people of all ages can use Cicaplast Baume B5. It is a great addition to any skincare routine for sensitive skin and safe for the whole family, including babies as young as six months old, as the formula has been tested under dermatological and pediatric control. The quick-absorbing and non-sticky balm can be used as a moisturizer for any skin type or as a spot treatment for eczema or irritated skin. There is no wrong way to use this safe and allergy-tested balm!\r\nCicaplast Baume B5 can be used once or twice a day, day or night, on cleansed skin. Apply a generous layer to the face, body, hands, or lips. It can also be applied to rough, cracked skin, diaper rash, or sensitive skin that’s prone to irritation and redness.', 'image/1687820513CICAPLAST_BAUME.jpg', '2023-06-26 22:53:46', 'PharmaLine', 1),
+(38, 'Geek & Gorgeous 101 C-Glow Serum | Doctors Review', 'The Geek & Gorgeous 101 C-Glow Serum is a super-light, water-like 15% Vitamin C + extra antioxidants (Ferulic Acid & a smaller amount of Vitamin E) formula to give the skin environmental protection, boost collagen, and even the skin tone.\r\nWhat differentiates this serum from most is the color. It is absolutely clear, while other Vitamin C products often have a slight yellow tint. As background: Ascorbic Acid is pretty unstable, and when it oxidizes, it turns yellow. This is how you can tell that it is losing its efficacy, a product that has turned a deep yellow probably no longer has a lot of Vitamin C still active.\r\nAs the Geek and Gorgeous C-Glow Serum is made fresh on order, there is minimal oxidation once the product arrives as opposed to a product that has been sitting in store for a little while already.\r\nVitamin C serums are preferred to be used in the mornings, to get the most out of the antioxidant effects, but using it at night is of course possible as well. Against common belief, it can be paired with most other substances, which is a great detail when considering adding this serum to your routine.', 'image/1687820817GREEK&GORGEOUS_CGLOW.jpg', '2023-06-26 22:58:57', 'PharmaLine', 0),
+(39, 'Tester post', 'Delete later', 'image/Kelly Hill - Free Instagram Highlights Template.png', '2023-06-26 23:07:30', 'PharmaLine', 0);
 
 -- --------------------------------------------------------
 
@@ -134,21 +116,26 @@ INSERT INTO `posts` (`id`, `title`, `body`, `thumbnail`, `date_time`, `author_id
 --
 
 CREATE TABLE `products` (
-  `id` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `product_id` int(100) NOT NULL,
+  `product_name` varchar(100) NOT NULL,
+  `product_keyword` varchar(255) NOT NULL,
   `description` varchar(500) NOT NULL,
-  `price` double NOT NULL,
+  `price` varchar(2225) NOT NULL,
   `quantity` int(11) NOT NULL,
   `image` varchar(100) NOT NULL,
-  `category` varchar(224) NOT NULL
+  `category` varchar(224) NOT NULL,
+  `brand` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `image`, `category`) VALUES
-(66, 'hi', 'jhbhbkjbkbkj', 55, 33, '1_Hydraphase-HA-Light.png', 'Skincare');
+INSERT INTO `products` (`product_id`, `product_name`, `product_keyword`, `description`, `price`, `quantity`, `image`, `category`, `brand`) VALUES
+(66, 'hi', '', 'jhbhbkjbkbkj', '55', 33, '1_Hydraphase-HA-Light.png', 'Skincare', ''),
+(68, 'Cleanser', 'cleanser, lo rel cleanser, clean', 'It is a very good cleanser actually', '112', 10, '1_Toleriane_Rosaliac-AR.webp.png', 'Skincare', ''),
+(69, 'Clean', 'clean, cleaner, cleanser, lo reyclean', 'sldfmskdlfmdlfmsdlmfdsmfdslm', '112', 2, '24h-Cell-Energizer-Cream.png', 'skincare', ''),
+(70, 'Smth', 'smth, s, sm', 'It is something', '12.4', 12, '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png', 'skincare', 'skincode');
 
 -- --------------------------------------------------------
 
@@ -157,7 +144,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `quantity`, `image
 --
 
 CREATE TABLE `user_form` (
-  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `name` varchar(225) NOT NULL,
   `email` varchar(225) NOT NULL,
   `password` varchar(225) NOT NULL,
@@ -168,7 +155,7 @@ CREATE TABLE `user_form` (
 -- Dumping data for table `user_form`
 --
 
-INSERT INTO `user_form` (`id`, `name`, `email`, `password`, `user_type`) VALUES
+INSERT INTO `user_form` (`user_id`, `name`, `email`, `password`, `user_type`) VALUES
 (4, 'Tea', 'tea@gmail.com', '$2y$10$yaGTTYCTkemJSjF0bW3PeOqukj2Lh/4ROiEcOxCLDKGwuWCIOZPya', 'custumer'),
 (5, 'admin', 'admin@gmail.com', '$2y$10$DXie.M8u6zmCzFmwks5vhO6uTxHzVJLIRbp1HjzWvIYjoHk9lG8h2', 'admin'),
 (6, 'Ana', 'an66@gmail.com', '$2y$10$NVMRvQ9LxFWNJHx4PVmiU.5Hkjf0c2Cf73OHT55FCbMWwe8eu2W1i', 'user'),
@@ -177,12 +164,6 @@ INSERT INTO `user_form` (`id`, `name`, `email`, `password`, `user_type`) VALUES
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`brand_id`);
 
 --
 -- Indexes for table `cart`
@@ -212,13 +193,13 @@ ALTER TABLE `posts`
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`product_id`);
 
 --
 -- Indexes for table `user_form`
 --
 ALTER TABLE `user_form`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -228,7 +209,7 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=334;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=338;
 
 --
 -- AUTO_INCREMENT for table `discounts`
@@ -246,19 +227,19 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `user_form`
 --
 ALTER TABLE `user_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
