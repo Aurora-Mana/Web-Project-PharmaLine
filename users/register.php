@@ -82,7 +82,6 @@
         
          <select name="user_type" class="form-select mb-3" aria-label="Default select example" required>
           <option value="user">Customer</option>
-          <option value="admin">Admin</option>
  
         </select>
 
