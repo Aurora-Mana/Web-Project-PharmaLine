@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2023 at 05:48 PM
+-- Generation Time: Jun 27, 2023 at 10:37 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,13 +35,6 @@ CREATE TABLE `cart` (
   `quantity` int(100) NOT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`id`, `user_id`, `product_name`, `price`, `quantity`, `image`) VALUES
-(341, 6, 'Smth', 12, 2, '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png');
 
 -- --------------------------------------------------------
 
@@ -92,7 +85,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `address2`, `total_products`, `total_price`, `order_status`, `order_date`) VALUES
 (65, 0, 'Ana', '323242342', 'an66@gmail.com', 'credit card', '1234 Main', '', 'Clean (1) , Smth (1) ', '124', 'on_hold', '2023-06-27 14: 31:56'),
-(66, 6, 'Ana', '1243546', 'an66@gmail.com', 'cash', '1234 Main', '', 'Clean (1) , Smth (1) ', '124', 'on_hold', '2023-06-27 15:25:01');
+(66, 6, 'Ana', '1243546', 'an66@gmail.com', 'cash', '1234 Main', '', 'Clean (1) , Smth (1) ', '124', 'on_hold', '2023-06-27 15:25:01'),
+(67, 6, 'Ana', '34567u8i', 'an66@gmail.com', 'cash', '1234 Main', '', 'Smth (2) , dfg (2) ', '68', 'on_hold', '2023-06-27 19:32:51'),
+(68, 6, 'Ana', '123456678', 'an66@gmail.com', 'cash', '1234 Main', '', 'Carrot (1) , A-GAME 5 (1) , DESTINATION DREAM SKIN (1) ', '109', 'on_hold', '2023-06-27 22:34:29');
 
 -- --------------------------------------------------------
 
@@ -136,6 +131,26 @@ CREATE TABLE `products` (
   `category` varchar(224) NOT NULL,
   `brand` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`product_id`, `product_name`, `product_keyword`, `description`, `price`, `quantity`, `image`, `category`, `brand`) VALUES
+(86, 'Purifying cleansing gel ', 'gel', 'A Water-Activated Cleansing Foaming Gel To Gently Regulate Surface Oil.', '$37', 1, '1535096295_front.webp.png', 'skincare', 'skincode'),
+(87, 'FIRMING EYE ZONE GEL', 'Eye gel', 'A Velvety Eye Cream To Help Brighten, Smooth And Detoxify The Eye Contour Area.', '$37', 1, '8.SKINCODE-Firming-Eye-Zone-Gel.webp.png', 'skincare', 'skincode'),
+(88, 'CELLULAR ANTI AGING CREAM', 'cream', 'A Deeply Nourishing Moisturizer That Amplifies The Collagen Production, While Repairing And Strengthening The Skin.', '43', 1, 'Cellular-Anti-Aging-Cream.png', 'skincare', 'skincode'),
+(89, 'DESTINATION DREAM SKIN', 'set', 'Reveal Your Most Healthy, Beautiful Skin With This Skincode Essentials Kit Featuring The Bestselling Purifying Cleansing Gel', '54', 1, 'Skincode_Essentials_Kits_dream-destination-kit_1-1-300x300.png', 'skincare', 'skincode'),
+(90, 'SWISS SKINCARE JEWELS ANTI-AGING COLLECTION', 'set', 'A Precious, Limited-Edition Collection Of Results-Driven Cellular Anti-Aging Products To Treat And Prevent All Signs Of Aging.', '$124', 1, 'Skincode_Exclusive_Kits_1283-Swiss-Skincare-Jewels-300x300.png', 'skincare', 'skincode'),
+(100, 'Hydro Cloud Oil-Free Water Gel', 'water gel', 'Intense Hydration: It Gives Immediate And Long-Lasting Hydration To All Skin Levels. Thanks To The Natural Prebiotic, With Action Similar To Vitamin D', '18.80', 1, 'hydro-cloud-serum_a.png', 'skincare', 'youthlab'),
+(102, 'C-Glow', 'serum', 'A Super-Light, Water-Like 15% Vitamin C + Extra Antioxidants (Ferulic Acid & A Smaller Amount Of Vitamin E) Formula To Give The Skin Environmental Protection, Boost Collagen & Even The Skin Tone.', '12.50', 1, 'CGlow-square-2023_360x.webp.png', 'skincare', 'geekandgorgeus'),
+(103, 'B-BOMB', 'serum', 'Our Medium-Strong, Combination Skin Focused Exfoliant With 6% Mandelic Acid + BHA Works Both On The Surface Of The Skin And Inside The Pores To Clear & Balance The Complexion.', '8.50', 1, 'BBomb-square-2023_360x.webp.png', 'skincare', 'geekandgorgeus'),
+(104, 'A-GAME 5', 'cream', 'A Silky, Light Emulsion Containing A Medium-Strength Amount Of Retinal To Help Against All Signs Of Aging, While Being Gentle On The Skin.', '13.8', 1, 'A-GAME-5-square_360x.webp.png', 'skincare', 'geekandgorgeus'),
+(105, 'CHEER UP', 'cream', 'Our Medium-Strong, Combination Skin Focused Exfoliant With 6% Mandelic Acid + BHA Works Both On The Surface Of The Skin And Inside The Pores To Clear & Balance The Complexion.', '28.50', 1, 'cheer-up-square-2023_360x.webp.png', 'skincare', 'geekandgorgeus'),
+(106, 'KEEP CALM KIT', 'set', 'A Universal Trio, Including A Gentle Cleanser, A Soothing Toner Spray, And A Skin-Plumping Hyaluronic Acid Serum, Suitable For All Skin Types And Skin Concerns. The Perfect Gift, If You Do Not Know The Skin Type Or Skincare Habits Of The Lucky Receiver.', '49', 1, 'Keep-Calm-Kit_360x.webp.PNG', 'skincare', 'geekandgorgeus'),
+(107, 'Brightening Vit-C Gel Cream', 'Gel Cream', 'Brightening Vit-C Gel Cream Is A Non-Oily, Hydrating Cream Gel, With Stabilized L-Ascorbic Acid (Vitamin C) And “Water Gel” Technology', '23', 1, 'Brightening_vitC_gel-cream_Site-2.png', 'skincare', 'youthlab'),
+(108, 'Retinol Reboot Mask – 1 Pc', 'Mask', 'A Tissue Mask For Immediate Tightening & Smoothing Of Deep-Set Wrinkles, While Moisturizing And Revealing An Even Skin Tone.', '8.50', 1, '5200142100506_1.png', 'skincare', 'youthlab'),
+(109, 'Hydra-Gel Eye Patches – 60 Pcs.', ' eye Patches', 'This Serum Combines Concentrated 10% Pure Vitamin C, Salicylic Acid And Neurosensine For Optimal Effectiveness While Also Being Suitable For Sensitive Skin.	', '20', 1, 'eye-Patches-peptides_Site-award-3.png', 'skincare', 'youthlab');
 
 -- --------------------------------------------------------
 
@@ -211,7 +226,7 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=342;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
 
 --
 -- AUTO_INCREMENT for table `discounts`
@@ -223,7 +238,7 @@ ALTER TABLE `discounts`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -235,7 +250,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
 
 --
 -- AUTO_INCREMENT for table `user_form`

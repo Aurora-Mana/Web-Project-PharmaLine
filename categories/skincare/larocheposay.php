@@ -31,16 +31,16 @@ if(isset($_POST['add_to_cart'])){
 <head>
   <title>Pharmaline - La Roche Posay Products</title>
   <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../assets/css/styleProductPage.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
-    .product-box {
-      display: inline-block;
-      width: 200px;
-      margin: 10px;
-      padding: 10px;
-      background-color: #f5f5f5;
-      text-align: center;
-      cursor: pointer; /* Add cursor style for hover effect */
+     .products{
+       display: grid;
+       grid-template-columns: repeat(3, 2fr);
+       gap: 3rem;
+       margin-bottom: 6rem;;
+       margin-top: 20px;
+       margin-left: 50px;
     }
 
     .product-box img {
@@ -180,26 +180,153 @@ if(isset($_POST['add_to_cart'])){
     height: 70px;
     position: absolute;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: auto;
+  }
+  
+  header {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .card{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    text-align: center;
+    cursor: pointer; /* Add cursor style for hover effect */
+  }
+  
 
+  .icard-img-top{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+  }
 
-
+  .card-body{
+    background-color: #f5f5f5;
+  }
+  
+  .star{
+    background-color: #ffffff;
+  }
+  
+  
+  .logo{
+    width: 80px;
+    height: auto;
+  }
+  
+  .logo-name{
+    width: 200px;
+    height: auto;
+  }
+  
+  .header-text {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .header-text h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons .header-icon {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .header-icons .header-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  a:link { 
+    text-decoration: none; 
+  }
+  
+  
+  a:visited { 
+  text-decoration: none; 
+  }
+  
+  
+  a:hover { 
+  text-decoration: none; 
+  }
+  
+  
+  a:active { 
+  text-decoration: none; 
+  }
+  
+  
+  body > footer {
+    margin-top: 26px;
+  }
+  body > div > div > div:nth-child(1) > div > center > h3 {
+    margin-top: 25px;
+  }
+  body > div > div {
+    margin-top: 65px;
+}
+body > header > div.cart-icon > a {
+  margin-right: -300px;
+}
+body > header > div.logo {
+    margin-left: -227px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 517px;
+}
+body > header > a > img {
+    margin-left: -216px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 768px;
+}
   </style>
   </head>
 
   <!--This is the body part-->  
 
 <body>
-  <header class="header">
-    <div class="logo"> La Roche Posay Products</div>
-    <a href="../combinedpages.php">
-    <img src="../../image/la4169lce0-la-roche-posay-logo-la-roche-posay-logo-ufs-mount-gambier.png" alt="Logo"></a>
-    <?php if ($loggedIn) { ?>
+<header>
+<a href="../combinedpages.php">
+<a href="../combinedpages.php">
+    <img src="../../image/la4169lce0-la-roche-posay-logo-la-roche-posay-logo-ufs-mount-gambier.png" alt="Logo" class="logo"></a>
+    
+    <div class="header-text">
+    </div>
+    <div class="header-icons">
+      <img src="../../image/search.png" alt="Search" class="header-icon">
+      <img src="../../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <?php if ($loggedIn) { ?>
                   <a href="../../users/logout.php">
                   <img src="../../image/logout.png" alt="Logout" class="header-icon"></a>  
                   </a>
       <?php }; ?> 
-    <div class="cart-icon" onclick="toggleCartMenu()">
-      < <?php
+      <?php
       
       $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
       $row_count = mysqli_num_rows($select_rows);
@@ -209,11 +336,8 @@ if(isset($_POST['add_to_cart'])){
       <img src="../../image/shopping-bag (1).png" alt="Shopping" class="header-icon"> <span><?php echo $row_count; ?></span>
     </a>
     </div>
-      <div id="image/cart-count" class="cart-count"></div>
-      <div id="image/cart-menu" class="cart-menu"></div>
-    </div>
   </header>
-
+  
   <!-- SkinCode Page -->
   <div class="container skin-code-page">
   <div class="products"> 
@@ -251,119 +375,6 @@ if(isset($_POST['add_to_cart'])){
       };
      ?>
 </div>
-
-
-    <div class="product-box" onclick="showProductDetails('01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png', 'LIPIKAR AP+ GENTLE FOAMING CLEANSING OIL')">
-      <img src="../../image/01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png" alt="Product.A">
-      <h3> LIPIKAR AP+ GENTLE FOAMING CLEANSING OIL</h3>
-      <p>16.50$</p>
-      <button class="add-to-bag-button" onclick="addToCart('LIPIKAR AP+ GENTLE FOAMING CLEANSING OIL', '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png')">Add to Bag</button>
-   </div>
-       
-   <div class="product-box" onclick="showProductDetails('1-la-roche-posay-anthelios-70-uv-correct.webp.png', 'ANTHELIOS UV CORRECT FACE SUNSCREEN SPF 70 WITH NIACINAMIDE ')">
-    <img src="../../image/BBomb-square-2023_360x.webp.png" alt="Product B">
-    <h3>ANTHELIOS UV CORRECT FACE SUNSCREEN SPF 70 WITH NIACINAMIDE</h3>
-    <p>8.50$</p>
-    <button class="add-to-bag-button" onclick="addToCart('ANTHELIOS UV CORRECT FACE SUNSCREEN SPF 70 WITH NIACINAMIDE ' , '1-la-roche-posay-anthelios-70-uv-correct.webp.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('3337875583626-1_Glycolic-B5_30ml.png', 'HYALU B5 PURE HYALURONIC ACID SERUM')">
-    <img src="../../image/3337875583626-1_Glycolic-B5_30ml.png" alt="Product C">
-    <h3>HYALU B5 PURE HYALURONIC ACID SERUM</h3>
-    <p>39$</p>
-    <button class="add-to-bag-button" onclick="addToCart('HYALU B5 PURE HYALURONIC ACID SERUM', '3337875583626-1_Glycolic-B5_30ml.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('1_Toleriane_DblRepairMoisturizer_Tube.webp.png', 'TOLERIANE DOUBLE REPAIR FACE MOISTURIZER')">
-    <img src="../../image/1_Toleriane_DblRepairMoisturizer_Tube.webp.png" alt="Product C">
-    <h3>TOLERIANE DOUBLE REPAIR FACE MOISTURIZER</h3>
-    <p>18.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart('TOLERIANE DOUBLE REPAIR FACE MOISTURIZER', '1_Toleriane_DblRepairMoisturizer_Tube.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Set01_anti-aging-serum.png', 'ANTI-AGING SERUM SET')">
-    <img src="../../image/Set01_anti-aging-serum.png" alt="Product C">
-    <h3>ANTI-AGING SERUM SET</h3>
-    <p>110.47$</p>
-    <button class="add-to-bag-button" onclick="addToCart('ANTI-AGING SERUM SET' , 'ANTI-AGING SERUM SET')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('pure-vitamin-c-serum-3337875660570-la-roche-posay.png', '10% PURE VITAMIN C SERUM ')">
-    <img src="../../image/pure-vitamin-c-serum-3337875660570-la-roche-posay.png" alt="Product C">
-    <h3>10% PURE VITAMIN C SERUM</h3>
-    <p>20$</p>
-    <button class="add-to-bag-button" onclick="addToCart('10% PURE VITAMIN C SERUM', 'pure-vitamin-c-serum-3337875660570-la-roche-posay.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('la-roche-posay-cicaplast-soothing-balm-dry-skin-irritations-3606000437449-1.webp.png', 'CICAPLAST BALM B5 FOR DRY SKIN IRRITATIONS')">
-    <img src="../../image/la-roche-posay-cicaplast-soothing-balm-dry-skin-irritations-3606000437449-1.webp.png" alt="Product C">
-    <h3>CICAPLAST BALM B5 FOR DRY SKIN IRRITATIONS </h3>
-    <p>27$</p>
-    <button class="add-to-bag-button" onclick="addToCart('la-roche-posay-cicaplast-soothing-balm-dry-skin-irritations-3606000437449-1.webp.png', 'CICAPLAST BALM B5 FOR DRY SKIN IRRITATIONS')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('effaclar-duo-acne-spot-treatment-883140500759-1.webp.png', 'EFFACLAR DUO ACNE SPOT TREATMENT')">
-    <img src="../../image/effaclar-duo-acne-spot-treatment-883140500759-1.webp.png" alt="Product C">
-    <h3>EFFACLAR DUO ACNE SPOT TREATMENT</h3>
-    <p>37$</p>
-    <button class="add-to-bag-button" onclick="addToCart('EFFACLAR DUO ACNE SPOT TREATMENT','effaclar-duo-acne-spot-treatment-883140500759-1.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('la-roche-posay-toleriane-cleanser-for-oily-skin-3337875545822-1.webp.png', 'TOLERIANE PURIFYING FOAMING FACIAL WASH')">
-    <img src="../../image/la-roche-posay-toleriane-cleanser-for-oily-skin-3337875545822-1.webp.png" alt="Product C">
-    <h3>TOLERIANE PURIFYING FOAMING FACIAL WASH</h3>
-    <p>16.99$</p>
-    <button class="add-to-bag-button" onclick="addToCart('TOLERIANE PURIFYING FOAMING FACIAL WASH ','la-roche-posay-toleriane-cleanser-for-oily-skin-3337875545822-1.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Happier-Barrier-Square_360x.webp.png', 'EFFACLAR GEL FACIAL WASH FOR OILY SKIN')">
-    <img src="../../image/effaclar-facial-wash-for-oily-skin-3337872411991-1.png" alt="Product C">
-    <h3>EFFACLAR GEL FACIAL WASH FOR OILY SKIN</h3>
-    <p>22.99$</p>
-    <button class="add-to-bag-button" onclick="addToCart('EFFACLAR GEL FACIAL WASH FOR OILY SKIN' ,'effaclar-facial-wash-for-oily-skin-3337872411991-1.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('1_Toleriane_Rosaliac-AR.webp.png', 'TOLERIANE ROSALIAC AR FACE CREAM FOR VISIBLE REDNESS')">
-    <img src="../../image/1_Toleriane_Rosaliac-AR.webp.png" alt="Product C">
-    <h3>TOLERIANE ROSALIAC AR FACE CREAM FOR VISIBLE REDNESS</h3>
-    <p>30.99$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'TOLERIANE ROSALIAC AR FACE CREAM FOR VISIBLE REDNESS','1_Toleriane_Rosaliac-AR.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Set03-Cleanser-Redermic-AOX.png', 'ANTI-AGING ROUTINE SET')">
-    <img src="../../image/Set03-Cleanser-Redermic-AOX.png" alt="Product C">
-    <h3>ANTI-AGING ROUTINE SET</h3>
-    <p>141.92$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'ANTI-AGING ROUTINE SET','Set03-Cleanser-Redermic-AOX.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('Virtual-Duos_set3.png', 'TOLERIANE HYDRATING CLEANSER & MOISTURIZER 2-PACK')">
-    <img src="../../image/Virtual-Duos_set3.png" alt="Product C">
-    <h3>TOLERIANE HYDRATING CLEANSER & MOISTURIZER 2-PACK</h3>
-    <p>39.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'TOLERIANE HYDRATING CLEANSER & MOISTURIZER 2-PACK','Virtual-Duos_set3.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('1_Hydraphase-HA-Light.png', 'HYDRAPHASE HA LIGHT HYALURONIC ACID FACE MOISTURIZER')">
-    <img src="../../image/1_Hydraphase-HA-Light.png" alt="Product C">
-    <h3>HYDRAPHASE HA LIGHT HYALURONIC ACID FACE MOISTURIZER </h3>
-    <p>39$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'HYDRAPHASE HA LIGHT HYALURONIC ACID FACE MOISTURIZER','1_Hydraphase-HA-Light.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('la-roche-posay-effaclar-micellar-water-for-oily-skin-3337872412516-1.png', 'EFFACLAR MICELLAR WATER FOR OILY SKIN')">
-    <img src="../../image/la-roche-posay-effaclar-micellar-water-for-oily-skin-3337872412516-1.png" alt="Product C">
-    <h3>EFFACLAR MICELLAR WATER FOR OILY SKIN</h3>
-    <p>54$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'EFFACLAR MICELLAR WATER FOR OILY SKIN','la-roche-posay-effaclar-micellar-water-for-oily-skin-3337872412516-1.png')">Add to Bag</button>
-  </div>
-
-  
-</div>
-
 
 <footer>
   <div class="container">

@@ -24,7 +24,7 @@ if(isset($_POST['update_product'])){
     $stmt = mysqli_prepare($conn, $update_data);
     mysqli_stmt_bind_param($stmt, "ssdisisi", $product_name, $product_info, $product_price, $product_quantity, $product_image, $product_category, $product_brand, $id);
     $upload = mysqli_stmt_execute($stmt);
-    
+
     if ($upload) {
        move_uploaded_file($product_image_tmp_name, $product_image_folder);
        header('location: manageProducts.php');
@@ -43,7 +43,7 @@ if(isset($_POST['update_product'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Product Update</title>
     <link rel="stylesheet" type="text/css" href="assets/css/styleManageProducts.css">
     <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
     

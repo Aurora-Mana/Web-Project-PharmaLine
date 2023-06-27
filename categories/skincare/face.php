@@ -36,12 +36,13 @@ if(isset($_POST['add_to_cart'])){
 
   <style>
     body {
-  background-image: url('../../image/beauty-background-various-eco-friendly-cosmetic-skin-care-products-beauty-background-various-eco-friendly-cosmetic-184476996.png');
-  background-size: cover;
-
-  background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
+     background-image: url('../../image/beauty-background-various-eco-friendly-cosmetic-skin-care-products-beauty-background-various-eco-friendly-cosmetic-184476996.png');
+     background-size: cover;
+     background-repeat: no-repeat;
+     margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: auto;
 }
 
   .container {
@@ -78,6 +79,15 @@ if(isset($_POST['add_to_cart'])){
       display: flex;
       align-items: center;
     }
+     
+    .products{
+       display: grid;
+       grid-template-columns: repeat(3, 2fr);
+       gap: 3rem;
+       margin-bottom: 6rem;;
+       margin-top: 20px;
+       margin-left: 50px;
+    }
 
     .logo {
       width: 50px;
@@ -101,9 +111,9 @@ if(isset($_POST['add_to_cart'])){
 </head>
 <body>
   <header>
-    <img src="../../image/Logo.png" alt="Logo" class="logo">
+    <a href="../combinedpages.php">
+    <img src="../../image/face.jpg" alt="Logo" class="logo"></a>
     <div class="header-text">
-      <h1>PHARMALINE</h1>
     </div>
     <div class="header-icons">
       <img src="../../image/search.png" alt="Search" class="header-icon">

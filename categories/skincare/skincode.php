@@ -31,16 +31,17 @@ if(isset($_POST['add_to_cart'])){
 <head>
   <title>Pharmaline - SkinCode Products</title>
   <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
+  <!-- SkinCode Page -->
+<link rel="stylesheet" href="../../assets/css/styleProductPage.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
-    .product-box {
-      display: inline-block;
-      width: 200px;
-      margin: 10px;
-      padding: 10px;
-      background-color: #f5f5f5;
-      text-align: center;
-      cursor: pointer; /* Add cursor style for hover effect */
+      .products{
+       display: grid;
+       grid-template-columns: repeat(3, 2fr);
+       gap: 3rem;
+       margin-bottom: 6rem;;
+       margin-top: 20px;
+       margin-left: 50px;
     }
 
     .product-box img {
@@ -71,7 +72,7 @@ if(isset($_POST['add_to_cart'])){
     }
 
     .header-text {
-      margin-left: 70px;
+      margin-left: 200px;
     }
 
     .shopping-bag-icon {
@@ -120,14 +121,13 @@ if(isset($_POST['add_to_cart'])){
 
 
 
-      .header-icon {
-      width: 40px;
-      height: 40px;
-      margin-left: 50px;
-      cursor: pointer;
-      }
- 
-        .header {
+    .header-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 1035px;
+}
+
+.header {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -139,15 +139,15 @@ if(isset($_POST['add_to_cart'])){
       .logo {
         display: flex;
         align-items: center;
-        margin-left:10px;
+        margin-left:180px;
         font-size: 20px;
       }
 
       .logo img {
-     width: 75px;
-     height: 75px;
-     margin-right: 10px;
-     }
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
 
       .logo span {
         font-weight: bold;
@@ -160,11 +160,11 @@ if(isset($_POST['add_to_cart'])){
       }
 
       .cart-icon img {
-      width: 40px;
-      height: 40px;
-      margin-right: 5px;
-      cursor: pointer;
-     }
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    cursor: pointer;
+}
 
       .cart-icon .dot {
         position: absolute;
@@ -177,42 +177,167 @@ if(isset($_POST['add_to_cart'])){
       }
 
       body > header > img {
-    width: 60px;
-    height: 50px;
+    width: 120px;
+    height: 70px;
     position: absolute;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: auto;
+  }
+  
+  header {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .card{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    text-align: center;
+    cursor: pointer; /* Add cursor style for hover effect */
+  }
+  
 
+  .icard-img-top{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+  }
 
-
+  .card-body{
+    background-color: #f5f5f5;
+  }
+  
+  .star{
+    background-color: #ffffff;
+  }
+  
+  
+  .logo{
+    width: 80px;
+    height: auto;
+  }
+  
+  .logo-name{
+    width: 200px;
+    height: auto;
+  }
+  
+  .header-text {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .header-text h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons .header-icon {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .header-icons .header-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  a:link { 
+    text-decoration: none; 
+  }
+  
+  
+  a:visited { 
+  text-decoration: none; 
+  }
+  
+  
+  a:hover { 
+  text-decoration: none; 
+  }
+  
+  
+  a:active { 
+  text-decoration: none; 
+  }
+  
+  
+  body > footer {
+    margin-top: 26px;
+  }
+  body > div > div > div:nth-child(1) > div > center > h3 {
+    margin-top: 25px;
+  }
+  body > div > div {
+    margin-top: 65px;
+}
+body > header > div.cart-icon > a {
+  margin-right: -300px;
+}
+body > header > div.logo {
+    margin-left: -227px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 517px;
+}
+body > header > a > img {
+    margin-left: -216px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 768px;
+}
   </style>
   </head>
 
   <!--This is the body part-->  
 
 <body>
-  <header class="header">
-    <div class="logo">
-      <a href="../combinedpages.php">
-    <img src="../../image/download.png" alt="Logo"></a></div>
-    <?php if ($loggedIn) { ?>
+<header>
+<a href="../combinedpages.php">
+    <img src="../../image/download.png" alt="Logo" class="logo"></a>
+    
+    <div class="header-text">
+    </div>
+    <div class="header-icons">
+      <img src="../../image/search.png" alt="Search" class="header-icon">
+      <img src="../../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <?php if ($loggedIn) { ?>
                   <a href="../../users/logout.php">
                   <img src="../../image/logout.png" alt="Logout" class="header-icon"></a>  
                   </a>
       <?php }; ?> 
-
-    <div class="cart-icon" onclick="toggleCartMenu()">
-    <?php
+      <?php
+      
       $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
       $row_count = mysqli_num_rows($select_rows);
+
       ?>
       <a href="../../cart.php">
       <img src="../../image/shopping-bag (1).png" alt="Shopping" class="header-icon"> <span><?php echo $row_count; ?></span>
     </a>
     </div>
-      <div id="cart-count" class="cart-count"></div>
-      <div id="cart-menu" class="cart-menu"></div>
-    </div>
   </header>
+
 
   <!-- SkinCode Page -->
   <div class="container skin-code-page">
@@ -254,207 +379,43 @@ if(isset($_POST['add_to_cart'])){
 
 
 <footer>
-<div class="container">
-<div class="row">
- <div class="col-md-4">
-   <h4>About PharmaLine</h4>
-   <p>PharmaLine is your best health partner, providing a wide range of health and beauty products to enhance your well-being.</p>
- </div>
- <div class="col-md-4">
-   <h4>Quick Links</h4>
-   <ul>
-     <li>Home</a></li>
-     <li>Shop</a></li>
-     <li>Blog</a></li>
-   </ul>
- </div>
- <div class="col-md-4">
-   <h4>Contact Information</h4>
-   <p>123 Main Street, Tirane, Albania</p>
-   <p>Email: info@pharmaline.com</p>
-   <p>Phone: +1 123 456 7890</p>
- </div>
-</div>
-<div class="col-md-4">
-<div class="footer-section social">
- <h4>Follow Us</h4>
- <div class="social-icons">
-   <a href="#"><i class="fab fa-facebook"></i></a>
-   <a href="#"><i class="fab fa-twitter"></i></a>
-   <a href="#"><i class="fab fa-instagram"></i></a>
-   <a href="#"><i class="fab fa-linkedin"></i></a>
- </div>
-</div>
-</div>
-<div class="footer-bottom">
-<div class="container">
- <div class="row">
-   <div class="col-md-12">
-     <p>&copy; 2023 PharmaLine. All rights reserved.</p>
-   </div>
- </div>
-</div>
-</div>
-</footer> 
-
-    <div class="product-box" onclick="showProductDetails('../../image/images.jfif.png', ' PURIFYING CLEANSING GEL')">
-      <a href="../../product_description.html">
-      <img src="../../image/images.jfif.png" alt="Product.A"></a>
-      <h3> PURIFYING CLEANSING GEL</h3>
-      <p>35$</p>
-      <button class="add-to-bag-button" onclick="addToCart('PURIFYING CLEANSING GEL', 'images.jfif.png')">Add to Bag</button>
-   </div>
-       
-   <div class="product-box" onclick="showProductDetails('8.SKINCODE-Firming-Eye-Zone-Gel.webp.png', 'FIRMING EYE ZONE GEL ')">
-    <img src="../../image/8.SKINCODE-Firming-Eye-Zone-Gel.webp.png" alt="Product B">
-    <h3>FIRMING EYE ZONE GEL  </h3>
-    <p>47$</p>
-    <button class="add-to-bag-button" onclick="addToCart('FIRMING EYE ZONE GEL ' , '8.SKINCODE-Firming-Eye-Zone-Gel.webp.png')">Add to Bag</button>
-  </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>About PharmaLine</h4>
+          <p>PharmaLine is your best health partner, providing a wide </br>range of health and beauty products to enhance your well-being.</p>
+        </div>
   
-  <div class="product-box" onclick="showProductDetails('Cellular-Anti-Aging-Cream.png', 'CELLULAR ANTI AGING CREAM')">
-    <img src="../../image/Cellular-Anti-Aging-Cream.png" alt="Product C">
-    <h3>CELLULAR ANTI AGING CREAM </h3>
-    <p>43$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR ANTI AGING CREAM', 'Cellular-Anti-Aging-Cream.png')">Add to Bag</button>
-  </div>
+        <div class="col-md-4">
+          <h4>Contact Information</h4>
+          <p>123 Main Street, Tirane, Albania</p>
+          <p>Email: info@pharmaline.com</p>
+          <p>Phone: +1 123 456 7890</p>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-section social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>&copy; 2023 PharmaLine. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
   
-  <div class="product-box" onclick="showProductDetails('Cellular-Power-Concentrate-2.png', 'CELLULAR POWER CONCENTRATE')">
-    <img src="../../image/Cellular-Power-Concentrate-2.png" alt="Product C">
-    <h3>CELLULAR POWER CONCENTRATE</h3>
-    <p>54$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR POWER CONCENTRATE', 'Cellular-Power-Concentrate-2.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('1535096295_front.webp.png', 'PURIFYING CLEANSING GEL')">
-    <img src="../../image/1535096295_front.webp.png" alt="Product C">
-    <h3>PURIFYING CLEANSING GEL </h3>
-    <p>35$</p>
-    <button class="add-to-bag-button" onclick="addToCart('PURIFYING CLEANSING GEL' , '1535096295_front.webp.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('24h-Cell-Energizer-Cream.png', '24h CELL ENERGIZER CREAM')">
-    <img src="../../image/24h-Cell-Energizer-Cream.png" alt="Product C">
-    <h3>24h CELL ENERGIZER CREAM </h3>
-    <p>70$</p>
-    <button class="add-to-bag-button" onclick="addToCart('24h CELL ENERGIZER CREAM', '24h-Cell-Energizer-Cream.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('skincode-essentials-hydro-repair-serum-500x500.webp.png', 'HYDRO REPAIR SERUM')">
-    <img src="../../image/skincode-essentials-hydro-repair-serum-500x500.webp.png" alt="Product C">
-    <h3>HYDRO REPAIR SERUM </h3>
-    <p>67$</p>
-    <button class="add-to-bag-button" onclick="addToCart('HYDRO REPAIR SERUM','skincode-essentials-hydro-repair-serum-500x500.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Essentials-Daily-Care_1500-50ml-Sun-Protection-Face-Lotion_NP-300x300.png', 'SUN PROTECTION FACE LOTION SPF 50+')">
-    <img src="../../image/Skincode_Essentials-Daily-Care_1500-50ml-Sun-Protection-Face-Lotion_NP-300x300.png" alt="Product C">
-    <h3>SUN PROTECTION FACE LOTION SPF 50+</h3>
-    <p>53$</p>
-    <button class="add-to-bag-button" onclick="addToCart('SUN PROTECTION FACE LOTION SPF 50+','Skincode_Essentials-Daily-Care_1500-50ml-Sun-Protection-Face-Lotion_NP-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_5005-Revitalizing-Toner_NP-300x300.png', 'CELLULAR REVITALIZING TONER')">
-    <img src="../../image/Skincode_Exclusive_5005-Revitalizing-Toner_NP-300x300.png" alt="Product C">
-    <h3>CELLULAR REVITALIZING TONER</h3>
-    <p>47$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR REVITALIZING TONER','Skincode_Exclusive_5005-Revitalizing-Toner_NP-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('5020_EXC_Cellular-Extreme-Moisture-Mask_Web_NP-300x300.png', 'CELLULAR EXTREME MOISTURE MASK')">
-    <img src="../../image/5020_EXC_Cellular-Extreme-Moisture-Mask_Web_NP-300x300.png" alt="Product C">
-    <h3>CELLULAR EXTREME MOISTURE MASK</h3>
-    <p>57$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR EXTREME MOISTURE MASK' ,'5020_EXC_Cellular-Extreme-Moisture-Mask_Web_NP-300x300.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Essentials-24h_1035-24h-Lip-Balm_NP-300x300.png', 'SUN PROTECTION FACE LOTION SPF 50+')">
-    <img src="../../image/Skincode_Essentials-24h_1035-24h-Lip-Balm_NP-300x300.png" alt="Product C">
-    <h3>24H INTENSIVE MOISTURIZING LIP BALM</h3>
-    <p>15$</p>
-    <button class="add-to-bag-button" onclick="addToCart( '24H INTENSIVE MOISTURIZING LIP BALM','Skincode_Essentials-24h_1035-24h-Lip-Balm_NP-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Essentials_Alpine-White_1600_Brightening-Day-Cream-SPF15-300x300.png', 'BRIGHTENING TOTAL CLARITY SERUM')">
-    <img src="../../image/Skincode_Essentials_Alpine-White_1600_Brightening-Day-Cream-SPF15-300x300.png" alt="Product C">
-    <h3>BRIGHTENING TOTAL CLARITY SERUM</h3>
-    <p>27$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'BRIGHTENING TOTAL CLARITY SERUM','Skincode_Essentials_Alpine-White_1600_Brightening-Day-Cream-SPF15-300x300.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('Skincode_Essentials-Daily-Care_1018-Eye-Contour-Cream-NP-300x300.png', 'REVITALIZING EYE CONTOUR CREAM')">
-    <img src="../../image/image/Skincode_Essentials-Daily-Care_1018-Eye-Contour-Cream-NP-300x300.png" alt="Product C">
-    <h3>REVITALIZING EYE CONTOUR CREAM</h3>
-    <p>37$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'REVITALIZING EYE CONTOUR CREAM','Skincode_Essentials-Daily-Care_1018-Eye-Contour-Cream-NP-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Essentials_S.O.S.-Oil-Control_1703-Pore-Refining-Mask_NP-1-300x300.png', 'PORE REFINING MASK')">
-    <img src="../../image/Skincode_Essentials_S.O.S.-Oil-Control_1703-Pore-Refining-Mask_NP-1-300x300.png" alt="Product C">
-    <h3>PORE REFINING MASK</h3>
-    <p>49$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'PORE REFINING MASK','Skincode_Essentials_S.O.S.-Oil-Control_1703-Pore-Refining-Mask_NP-1-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Essentials_Kits_dream-destination-kit_1-1-300x300.png', 'DESTINATION DREAM SKIN')">
-    <img src="../../image/Skincode_Essentials_Kits_dream-destination-kit_1-1-300x300.png" alt="Product C">
-    <h3> DESTINATION DREAM SKIN</h3>
-    <p>54$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'DESTINATION DREAM SKIN','Skincode_Essentials_Kits_dream-destination-kit_1-1-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('6001_PRESTIGE_Supreme-Perfection-Cashmere-Cream_NEW-300x300.png', 'SUPREME PERFECTION CASHMERE CREAM')">
-    <img src="../../image/6001_PRESTIGE_Supreme-Perfection-Cashmere-Cream_NEW-300x300.png" alt="Product C">
-    <h3> SUPREME PERFECTION CASHMERE CREAM</h3>
-    <p>200$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'SUPREME PERFECTION CASHMERE CREAM','6001_PRESTIGE_Supreme-Perfection-Cashmere-Cream_NEW-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_Kits_1283-Swiss-Skincare-Jewels-300x300.png', 'SWISS SKINCARE JEWELS ANTI-AGING COLLECTION')">
-    <img src="../../image/Skincode_Exclusive_Kits_1283-Swiss-Skincare-Jewels-300x300.png" alt="Product C">
-    <h3> SWISS SKINCARE JEWELS ANTI-AGING COLLECTION</h3>
-    <p>124$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'SWISS SKINCARE JEWELS ANTI-AGING COLLECTION','Skincode_Exclusive_Kits_1283-Swiss-Skincare-Jewels-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_5004-Cleansing-Milk_NP-300x300.png', 'CELLULAR CLEANSING MILK')">
-    <img src="../../image/Skincode_Exclusive_5004-Cleansing-Milk_NP-300x300.png" alt="Product C">
-    <h3> CELLULAR CLEANSING MILK</h3>
-    <p>44$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'CELLULAR CLEANSING MILK','Skincode_Exclusive_5004-Cleansing-Milk_NP-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_5029-Pouch-5x-300x300.png', 'CELLULAR ANTI-AGING SHEET MASK')">
-    <img src="../../image/Skincode_Exclusive_5029-Pouch-5x-300x300.png" alt="Product C">
-    <h3> CELLULAR ANTI-AGING SHEET MASK</h3>
-    <p>69$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR ANTI-AGING SHEET MASK','Skincode_Exclusive_5029-Pouch-5x-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_Kits_Ultimate-Anti-Aging-Trio-2-300x300.png', 'ULTIMATE ANTI-AGING TRIO LUXURY KIT')">
-    <img src="../../image/Skincode_Exclusive_Kits_Ultimate-Anti-Aging-Trio-2-300x300.png" alt="Product C">
-    <h3>ULTIMATE ANTI-AGING TRIO LUXURY KIT</h3>
-    <p>173$</p>
-    <button class="add-to-bag-button" onclick="addToCart('ULTIMATE ANTI-AGING TRIO LUXURY KIT','Skincode_Exclusive_Kits_Ultimate-Anti-Aging-Trio-2-300x300.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_5019-EXC-Eye-Lift-Power-Pen_NP_NIF-300x300.png', 'CELLULAR EYE-LIFT POWER PEN')">
-    <img src="../../image/Skincode_Exclusive_5019-EXC-Eye-Lift-Power-Pen_NP_NIF-300x300.png" alt="Product C">
-    <h3>CELLULAR ANTI AGING CREAM </h3>
-    <p>43$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR EYE-LIFT POWER PEN', 'Skincode_Exclusive_5019-EXC-Eye-Lift-Power-Pen_NP_NIF-300x300.png')">Add to Bag</button>
-  </div>
-  <div class="product-box" onclick="showProductDetails('Skincode_Exclusive_5028-EXC-Overnight-Restoration-Oil-1-300x300.png', 'CELLULAR OVERNIGHT RESTORATION OIL')">
-    <img src="../../image/Skincode_Exclusive_5028-EXC-Overnight-Restoration-Oil-1-300x300.png" alt="Product C">
-    <h3>CELLULAR ANTI AGING CREAM </h3>
-    <p>43$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CELLULAR OVERNIGHT RESTORATION OIL', 'Skincode_Exclusive_5028-EXC-Overnight-Restoration-Oil-1-300x300.png')">Add to Bag</button>
-  </div>
-
-</div>
-
 
 
 <script>
