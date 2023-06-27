@@ -25,8 +25,7 @@ if (!isset($_SESSION['admin_id'])) {
 </head>
 <body>
 
-  
-  <div class="sidebar">
+<div class="sidebar">
     <div class="icon-container">
       <div class="logo-sidebar">
         <img src="image/Logo.png" alt="Logo" class="logo">
@@ -35,38 +34,39 @@ if (!isset($_SESSION['admin_id'])) {
       <div class="total-icons">
       
       <div class="icon" id="Home">
+      <a href="homePageAdmin.php">
       <i class="fa-solid fa-house" style="color: #21324f;"></i>
-      <a href="#">
-          <span class="icon-name">Home</span></a>
-        </div>
+      <span class="icon-name">Home</span>
+      </a>
+      </div>
      
-        
-      <div class="icon" id="Check-sales">
-        <i class="fa-solid fa-check-to-slot" style="color: #19263e;"></i>
-          <span class="icon-name">Check Sales</span>
-        </div>
-
+   
         <div class="icon" id="Generate-discount">
+         <a href="generateDiscount.php">
         <i class="fa-solid fa-tags" style="color: #0c182c;"></i>
           <span class="icon-name">Generate Discount</span>
+         </a>
         </div>
 
+      <a href="blogAdmin.php">
         <div class="icon" id="Blog">
           <i class="fas blog"></i>
           <img src="image/logoIcon.png" alt="Blog Icon">
           <span class="icon-name">Blog</span>
         </div>
-        
-        <div class="icon" id="ManageProducts">
-          <a href="manageProducts.php">
-          <i class="fa-solid fa-list-check" style="color: #25395b;"></i>
-          <span class="icon-name">Manage Products</span></a>
+      </a>
+        <div class="icon" id="Manage Products">
+        <a href="manageProducts.php">
+        <i class="fa-solid fa-list-check" style="color: #25395b;"></i>
+          <span class="icon-name">Manage Products</span>
+         </a>
         </div>
-
+        
         <div class="icon" id="Log-out">
           <a href="users/logout.php">
           <i class="fa-solid fa-right-from-bracket" style="color: #222d3f;"></i>
-          <span class="icon-name">Log Out</span></a>
+          <span class="icon-name">Log Out</span>
+         </a>
         </div>
         </div>
     </div>
