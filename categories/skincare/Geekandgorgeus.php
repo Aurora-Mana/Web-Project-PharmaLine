@@ -36,7 +36,278 @@ if(isset($_POST['add_to_cart'])){
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
   
+  .products{
+       display: grid;
+       grid-template-columns: repeat(3, 2fr);
+       gap: 3rem;
+       margin-bottom: 6rem;;
+       margin-top: 20px;
+       margin-left: 50px;
+    }
+
+    .product-box img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
+    }
+
+    .add-to-bag-button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: #f5f5f5;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
+    }
+
+    .header-text {
+      margin-left: 200px;
+    }
+
+    .shopping-bag-icon {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .header-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .cart-items-count {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 20px;
+      height: 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .cart-menu {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      width: 200px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      display: none;
+    }
+
+    .cart-menu-items {
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+
+
+    .header-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 1035px;
+}
+
+.header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        padding: 10px;
+        background-color: #f5f5f5;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        margin-left:180px;
+        font-size: 20px;
+      }
+
+      .logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+      .logo span {
+        font-weight: bold;
+      }
+
+      .cart-icon {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .cart-icon img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+      .cart-icon .dot {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 15px;
+        height: 15px;
+        background-color: green;
+        border-radius: 50%;
+      }
+
+      body > header > img {
+    width: 120px;
+    height: 70px;
+    position: absolute;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: auto;
+  }
   
+  header {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .card{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    text-align: center;
+    cursor: pointer; /* Add cursor style for hover effect */
+  }
+  
+
+  .icard-img-top{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+  }
+
+  .card-body{
+    background-color: #f5f5f5;
+  }
+  
+  .star{
+    background-color: #ffffff;
+  }
+  
+  
+  .logo{
+    width: 80px;
+    height: auto;
+  }
+  
+  .logo-name{
+    width: 200px;
+    height: auto;
+  }
+  
+  .header-text {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .header-text h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons .header-icon {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .header-icons .header-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  a:link { 
+    text-decoration: none; 
+  }
+  
+  
+  a:visited { 
+  text-decoration: none; 
+  }
+  
+  
+  a:hover { 
+  text-decoration: none; 
+  }
+  
+  
+  a:active { 
+  text-decoration: none; 
+  }
+  
+  
+  body > footer {
+    margin-top: 26px;
+  }
+  body > div > div > div:nth-child(1) > div > center > h3 {
+    margin-top: 25px;
+  }
+  body > div > div {
+    margin-top: 65px;
+}
+body > header > div.cart-icon > a {
+  margin-right: -300px;
+}
+body > header > div.logo {
+    margin-left: -227px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 517px;
+}
+body > header > a > img {
+    margin-left: -216px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 768px;
+}
+  </style>
   </head>
 
   <!--This is the body part-->  
