@@ -19,12 +19,12 @@ if(isset($_POST['update_product'])){
    if(empty($product_name) || empty($product_price) || empty($product_image) || empty($product_category)|| empty($product_brand)){
       $message[] = 'please fill out all!';    
    }else{
-
+    
     $update_data = "UPDATE products SET product_name=?, description=?, price=?, quantity=?, image=?, category=?, brand=? WHERE product_id=?";
     $stmt = mysqli_prepare($conn, $update_data);
-    mysqli_stmt_bind_param($stmt, "ssdissi", $product_name, $product_info, $product_price, $product_quantity, $product_image, $product_category,$product_brand, $id);
+    mysqli_stmt_bind_param($stmt, "ssdisisi", $product_name, $product_info, $product_price, $product_quantity, $product_image, $product_category, $product_brand, $id);
     $upload = mysqli_stmt_execute($stmt);
-
+    
     if ($upload) {
        move_uploaded_file($product_image_tmp_name, $product_image_folder);
        header('location: manageProducts.php');

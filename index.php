@@ -1,7 +1,15 @@
 <?php
 @include('config.php');
 session_start();
+
+$loggedIn = false; // Initialize the variable as false
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in
+    $loggedIn = true;
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +32,12 @@ session_start();
       <img src="image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()"></a>
       <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
       <a href="blogUser.php">
-      <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>   
+      <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>  
+      <?php if ($loggedIn) { ?>
+        <a href="users/logout.php">
+        <img src="image/logout.png" alt="Logout" class="header-icon"></a>  
+        </a>
+    <?php }; ?> 
     </div>
   
   </header>

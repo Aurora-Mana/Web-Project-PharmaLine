@@ -1,6 +1,14 @@
 <?php
 @include('config.php');
 session_start();
+$loggedIn = false; // Initialize the variable as false
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in
+    $loggedIn = true;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -229,6 +237,11 @@ body > div.container.makeup > div {
       <img src="../image/shopping-bag (1).png" alt="Shopping" class="header-icon">
       <a href="../blogUser.php">
       <img src="../image/blog1.png" alt="Shopping" class="header-icon"></a>   
+      <?php if ($loggedIn) { ?>
+                  <a href="../users/logout.php">
+                  <img src="../image/logout.png" alt="Logout" class="header-icon"></a>  
+                  </a>
+      <?php }; ?>  
     </div>
   </header>
 

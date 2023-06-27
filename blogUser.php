@@ -1,6 +1,15 @@
 <?php
   @include('users/config.php');
   session_start();
+
+  $loggedIn = false; // Initialize the variable as false
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in
+    $loggedIn = true;
+}
+
+  
   $featured_query = "SELECT * FROM posts WHERE is_featured=1";
       $featured_result = mysqli_query($conn, $featured_query);
       $featured = mysqli_fetch_assoc($featured_result);
@@ -33,6 +42,11 @@
       <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
       <a href="blogUser.php">
       <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>
+      <?php if ($loggedIn) { ?>
+                  <a href="users/logout.php">
+                  <img src="image/logout.png" alt="Logout" class="header-icon"></a>  
+                  </a>
+      <?php }; ?> 
       
         </div>
       </header>

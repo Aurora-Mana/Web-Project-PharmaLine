@@ -277,7 +277,7 @@ body > div.product-info > p:nth-child(2) {
   <div class="shopping-bag" id="shoppingBag">
     <h3 class="shopping-bag-title">Shopping Bag</h3>
     <ul class="shopping-bag-list" id="shoppingBagList"></ul>
-    <a href="checkout.html">
+    <a href="checkout.php">
     <button class="checkout-button" id="checkoutButton">Checkout</button></a>
   </div>
 

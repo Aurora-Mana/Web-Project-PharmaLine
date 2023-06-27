@@ -3,7 +3,10 @@ include '../../users/config.php';
 
 session_start();
 
-$user_id = $_SESSION['user_id'];
+$loggedIn = isset($_SESSION['user_id']); // Set $loggedIn based on whether user_id is set in session
+
+$user_id = $_SESSION['user_id'] ?? null; // Assign the value of user_id if set, or null if not set
+
 
 if(isset($_POST['add_to_cart'])){
   $product_name = $_POST['product_name'];
@@ -105,6 +108,11 @@ if(isset($_POST['add_to_cart'])){
     <div class="header-icons">
       <img src="../../image/search.png" alt="Search" class="header-icon">
       <img src="../../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <?php if ($loggedIn) { ?>
+                  <a href="../../users/logout.php">
+                  <img src="../../image/logout.png" alt="Logout" class="header-icon"></a>  
+                  </a>
+      <?php }; ?> 
       <?php
       
       $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');

@@ -3,22 +3,25 @@ include '../../users/config.php';
 
 session_start();
 
-$user_id = $_SESSION['user_id'];
+$loggedIn = isset($_SESSION['user_id']); // Set $loggedIn based on whether user_id is set in session
+
+$user_id = $_SESSION['user_id'] ?? null; // Assign the value of user_id if set, or null if not set
+
+
 
 if(isset($_POST['add_to_cart'])){
-$product_id = $row['product_id'];
-$product_name = $row['product_name'];
-$product_price = $row['price'];
-$product_quantity = $row['quantity'];
-$product_image = $row['image'];
-$product_category = $row['category'];
+  $product_name = $_POST['product_name'];
+  $product_price = $_POST['price'];
+  $product_image = $_POST['product_image'];
+  $product_quantity = 1;
 
-$select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$product_name' AND user_id = '$user_id'");
+   $select_cart = mysqli_query($conn, "SELECT * FROM cart WHERE product_name = '$product_name' AND user_id = '$user_id'");
 
    if(mysqli_num_rows($select_cart) > 0){
       $message[] = 'product already added to cart';
    }else{
-      $insert_product = mysqli_query($conn, "INSERT INTO `cart`(user_id, product_id, product_name, price, image, quantity) VALUES('$user_id','$product_id','$product_name', '$product_price', '$product_image', '$product_quantity')");
+      $insert = "INSERT INTO cart (user_id, product_name, price, image, quantity) VALUES('$user_id','$product_name', '$product_price', '$product_image', '$product_quantity')";
+      $insert_product = mysqli_query($conn,$insert);
       $message[] = 'product added to cart succesfully';
    }
 }
@@ -190,6 +193,11 @@ $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$
     <div class="logo"> YouthLabProducts</div>
     <a href="../combinedpages.php">
     <img src="../../image/youthlogo.png" alt="Logo"></a>
+    <?php if ($loggedIn) { ?>
+                  <a href="../../users/logout.php">
+                  <img src="../../image/logout.png" alt="Logout" class="header-icon"></a>  
+                  </a>
+      <?php }; ?> 
     <div class="cart-icon" onclick="toggleCartMenu()">
     <?php
       
@@ -230,6 +238,9 @@ $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE product_name = '$
              </div>
            <h5 class='card-title'><?php echo $row['product_name']?></h5>
            <h4 class='card-text'><?php echo $row['price']?> $</h4>
+           <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>">
+            <input type="hidden" name="price" value="<?php echo $row['price']; ?>">
+            <input type="hidden" name="product_image" value="<?php echo $row['image']; ?>">
            <button type="submit" class='btn btn-primary' name="add_to_cart" value="add to cart">Add to Cart</button></a>
            <button type="submit" class='btn btn-primary' name="view" value="view">View More</button></a>
          </div>

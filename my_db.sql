@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Jun 27, 2023 at 10:37 AM
-=======
--- Generation Time: Jun 27, 2023 at 01:08 AM
->>>>>>> ee80e55bcce2cedad2f26fe467cae81d85b39b66
+-- Generation Time: Jun 27, 2023 at 05:48 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `id` int(100) NOT NULL,
-  `user_id` int(100) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `product_name` varchar(100) NOT NULL,
   `price` int(100) NOT NULL,
   `quantity` int(100) NOT NULL,
@@ -45,7 +41,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `product_name`, `price`, `quantity`, `image`) VALUES
-(337, 6, 'Smth', 12, 1, '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png');
+(341, 6, 'Smth', 12, 2, '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png');
 
 -- --------------------------------------------------------
 
@@ -66,7 +62,8 @@ CREATE TABLE `discounts` (
 --
 
 INSERT INTO `discounts` (`id`, `code`, `percentage`, `start_date`, `end_date`) VALUES
-(1, 386614, 50, '2023-06-25', '2023-07-01');
+(1, 386614, 50, '2023-06-25', '2023-07-01'),
+(2, 227698, 25, '2023-06-27', '2023-06-30');
 
 -- --------------------------------------------------------
 
@@ -76,17 +73,26 @@ INSERT INTO `discounts` (`id`, `code`, `percentage`, `start_date`, `end_date`) V
 
 CREATE TABLE `orders` (
   `id` int(100) NOT NULL,
-  `user_id` int(100) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `number` varchar(12) NOT NULL,
   `email` varchar(100) NOT NULL,
   `method` varchar(50) NOT NULL,
   `address` varchar(500) NOT NULL,
+  `address2` varchar(225) NOT NULL,
   `total_products` varchar(1000) NOT NULL,
-  `total_price` int(100) NOT NULL,
-  `placed_on` varchar(50) NOT NULL,
-  `payment_status` varchar(20) NOT NULL DEFAULT 'pending'
+  `total_price` varchar(100) NOT NULL,
+  `order_status` varchar(112) NOT NULL,
+  `order_date` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `name`, `number`, `email`, `method`, `address`, `address2`, `total_products`, `total_price`, `order_status`, `order_date`) VALUES
+(65, 0, 'Ana', '323242342', 'an66@gmail.com', 'credit card', '1234 Main', '', 'Clean (1) , Smth (1) ', '124', 'on_hold', '2023-06-27 14: 31:56'),
+(66, 6, 'Ana', '1243546', 'an66@gmail.com', 'cash', '1234 Main', '', 'Clean (1) , Smth (1) ', '124', 'on_hold', '2023-06-27 15:25:01');
 
 -- --------------------------------------------------------
 
@@ -131,16 +137,6 @@ CREATE TABLE `products` (
   `brand` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`product_id`, `product_name`, `product_keyword`, `description`, `price`, `quantity`, `image`, `category`, `brand`) VALUES
-(66, 'hi', '', 'jhbhbkjbkbkj', '55', 33, '1_Hydraphase-HA-Light.png', 'Skincare', ''),
-(68, 'Cleanser', 'cleanser, lo rel cleanser, clean', 'It is a very good cleanser actually', '112', 10, '1_Toleriane_Rosaliac-AR.webp.png', 'Skincare', ''),
-(69, 'Clean', 'clean, cleaner, cleanser, lo reyclean', 'sldfmskdlfmdlfmsdlmfdsmfdslm', '112', 2, '24h-Cell-Energizer-Cream.png', 'skincare', ''),
-(70, 'Smth', 'smth, s, sm', 'It is something', '12.4', 12, '01_Lipikar-oil-400ml-NEA - CORRECTED.webp.png', 'skincare', 'skincode');
-
 -- --------------------------------------------------------
 
 --
@@ -173,7 +169,8 @@ INSERT INTO `user_form` (`user_id`, `name`, `email`, `password`, `user_type`) VA
 -- Indexes for table `cart`
 --
 ALTER TABLE `cart`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`product_name`);
 
 --
 -- Indexes for table `discounts`
@@ -185,7 +182,8 @@ ALTER TABLE `discounts`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`name`,`email`);
 
 --
 -- Indexes for table `posts`
@@ -213,19 +211,19 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=338;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=342;
 
 --
 -- AUTO_INCREMENT for table `discounts`
 --
 ALTER TABLE `discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -237,7 +235,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `product_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `user_form`

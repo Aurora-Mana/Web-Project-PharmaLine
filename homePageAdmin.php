@@ -1,6 +1,12 @@
 <?php
 @include('config.php');
 session_start();
+
+
+if (!isset($_SESSION['admin_id'])) {
+    header('location: users/login.php');
+    exit; // Stop executing the rest of the code
+}
 ?>
 
 <!DOCTYPE html>

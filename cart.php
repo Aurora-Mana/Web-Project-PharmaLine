@@ -1,9 +1,22 @@
 <?php
 @include 'users/config.php';
 
+
+session_start();
+
+$loggedIn = false; // Initialize the variable as false
+
+if (isset($_SESSION['user_id'])) {
+    // User is logged in
+    $loggedIn = true;
+}
+
+$user_id = $_SESSION['user_id'];
+
 if(isset($_POST['update_update_btn'])){
   $update_value = $_POST['update_quantity'];
   $update_id = $_POST['update_quantity_id'];
+  
   $update_quantity_query = mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_value' WHERE id = '$update_id'");
   if($update_quantity_query){
      header('location:cart.php');
@@ -45,7 +58,12 @@ if(isset($_GET['delete_all'])){
       <img src="image/user (1).png" alt="User" class="header-icon"></a>
       <img src="image/shopping-bag (1).png" alt="Shopping" class="header-icon">
       <a href="blogUser.php">
-      <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>   
+      <img src="image/blog1.png" alt="Shopping" class="header-icon"></a>  
+      <?php if ($loggedIn) { ?>
+                  <a href="users/logout.php">
+                  <img src="image/logout.png" alt="Logout" class="header-icon"></a>  
+                  </a>
+      <?php }; ?>  
     </div>
   
   </header>
@@ -67,7 +85,7 @@ if(isset($_GET['delete_all'])){
        </tr>
        
        <?php   
-         $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
+         $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE user_id = '$user_id'");
          $grand_total = 0;
          if(mysqli_num_rows($select_cart) > 0){
             while($fetch_cart = mysqli_fetch_assoc($select_cart)){
@@ -84,11 +102,13 @@ if(isset($_GET['delete_all'])){
                <span>$</span>
                <span class="p-price"><?php echo number_format($fetch_cart['price']); ?></span>
               </td>
+              <td>
               <form action="" method="post">
                   <input type="hidden" name="update_quantity_id"  value="<?php echo $fetch_cart['id']; ?>" >
                   <input type="number" name="update_quantity" min="1"  value="<?php echo $fetch_cart['quantity']; ?>" >
                   <input type="submit" value="update" name="update_update_btn">
-               </form>  
+               </form> 
+              </td> 
               <td><?php echo $sub_total = number_format($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</td>
               <td><a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
          </tr>
@@ -97,9 +117,10 @@ if(isset($_GET['delete_all'])){
             };
          };
          ?>
+         
           <tr class="table-bottom">
-            <td><a href="products.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
-            <td colspan="3">grand total</td>
+            <td><a href="categories/combinedpages.php" class="option-btn" style="margin-top: 0;">Continue Shopping</a></td>
+            <td colspan="3">Grand total</td>
             <td>$<?php echo $grand_total; ?>/-</td>
             <td><a href="cart.php?delete_all" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
          </tr>

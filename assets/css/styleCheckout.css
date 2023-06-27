@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root{
+   --blue:#2980b9;
+   --red:tomato;
+   --orange:orange;
+   --black:#333;
+   --white:#fff;
+   --bg-color:#eee;
+   --dark-bg:rgba(0,0,0,.7);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+   --border:.1rem solid #999;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -124,3 +138,40 @@ body {
     font-size: 35px;
 }
 
+
+.order-message-container{
+  position: fixed;
+  margin-top: 500px;
+  margin-left: 350px;
+  width: 800px;
+  height: 200px;
+  padding:2rem;
+  display: flex;
+  align-items: center;
+  z-index: 1100;
+  background-color: white;
+}
+
+
+.order-message-container .message-container{
+  width: 50rem;
+  background-color: var(--white);
+  border-radius: .5rem;
+  padding:2rem;
+  text-align: center;
+}
+
+.order-message-container .message-container h3{
+    text-align: left;
+    padding: 5px 10px;
+    color: rgb(240, 174, 89)
+}
+
+.order-message-container .btn{
+  padding:.5rem 1.5rem;
+  cursor: pointer;
+  width: 120px;
+  font-size: 20px;
+  background-color: var(--orange);
+  color:var(--white);
+}
