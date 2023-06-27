@@ -1,0 +1,162 @@
+CREATE TABLE Customer
+(
+  Email INT NOT NULL,
+  Password INT NOT NULL,
+  Address INT,
+  Surname INT NOT NULL,
+  Name INT NOT NULL,
+  PRIMARY KEY (Email)
+);
+
+CREATE TABLE Product
+(
+  Name INT NOT NULL,
+  Product_ID INT NOT NULL,
+  Photo INT NOT NULL,
+  Description INT NOT NULL,
+  Price INT NOT NULL,
+  Quantity INT NOT NULL,
+  PRIMARY KEY (Product_ID)
+);
+
+CREATE TABLE Comment
+(
+  Comment_ID INT NOT NULL,
+  Date_and_time INT NOT NULL,
+  Content INT NOT NULL,
+  Email INT NOT NULL,
+  Product_ID INT NOT NULL,
+  PRIMARY KEY (Comment_ID),
+  FOREIGN KEY (Email) REFERENCES Customer(Email),
+  FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
+
+CREATE TABLE Rating
+(
+  Rating_ID INT NOT NULL,
+  Value INT NOT NULL,
+  Date_and_time INT NOT NULL,
+  Email INT NOT NULL,
+  Product_ID INT NOT NULL,
+  PRIMARY KEY (Rating_ID),
+  FOREIGN KEY (Email) REFERENCES Customer(Email),
+  FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
+
+CREATE TABLE Shopping_Cart
+(
+  Order_ID INT NOT NULL,
+  Date_and_Time INT NOT NULL,
+  Address INT NOT NULL,
+  Email INT NOT NULL,
+  PRIMARY KEY (Order_ID),
+  FOREIGN KEY (Email) REFERENCES Customer(Email)
+);
+
+CREATE TABLE Clerk
+(
+  Email INT NOT NULL,
+  Name INT NOT NULL,
+  Surname INT NOT NULL,
+  Password INT NOT NULL,
+  Contact_info INT NOT NULL,
+  PRIMARY KEY (Email)
+);
+
+CREATE TABLE Check_out
+(
+  Check_out_ID INT NOT NULL,
+  Date_and_time INT NOT NULL,
+  Total_price INT NOT NULL,
+  Email INT NOT NULL,
+  PRIMARY KEY (Check_out_ID),
+  FOREIGN KEY (Email) REFERENCES Clerk(Email)
+);
+
+CREATE TABLE Revenue
+(
+  Revenue_ID INT NOT NULL,
+  Date_and_time INT NOT NULL,
+  Total__ INT NOT NULL,
+  PRIMARY KEY (Revenue_ID)
+);
+
+CREATE TABLE Owner
+(
+  Owner_Email INT NOT NULL,
+  Name INT NOT NULL,
+  Surname INT NOT NULL,
+  Password INT NOT NULL,
+  Contact_info INT NOT NULL,
+  PRIMARY KEY (Owner_Email)
+);
+
+CREATE TABLE Coupon
+(
+  Coupon_ID INT NOT NULL,
+  Active_period INT NOT NULL,
+  Discount_amount INT NOT NULL,
+  Email INT NOT NULL,
+  PRIMARY KEY (Coupon_ID),
+  FOREIGN KEY (Email) REFERENCES Owner(Owner_Email)
+);
+
+CREATE TABLE Blog
+(
+  Blog_Id INT NOT NULL,
+  Title INT NOT NULL,
+  Content INT NOT NULL,
+  Date_and_time INT NOT NULL,
+  Photos INT NOT NULL,
+  Email INT NOT NULL,
+  PRIMARY KEY (Blog_Id),
+  FOREIGN KEY (Email) REFERENCES Owner(Owner_Email)
+);
+
+CREATE TABLE Has
+(
+  Order_ID INT NOT NULL,
+  Product_ID INT NOT NULL,
+  PRIMARY KEY (Order_ID, Product_ID),
+  FOREIGN KEY (Order_ID) REFERENCES Shopping_Cart(Order_ID),
+  FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
+
+CREATE TABLE Can
+(
+  Email INT NOT NULL,
+  Check_out_ID INT NOT NULL,
+  PRIMARY KEY (Email, Check_out_ID),
+  FOREIGN KEY (Email) REFERENCES Customer(Email),
+  FOREIGN KEY (Check_out_ID) REFERENCES Check_out(Check_out_ID)
+);
+
+CREATE TABLE Edits
+(
+  Email INT NOT NULL,
+  Product_ID INT NOT NULL,
+  PRIMARY KEY (Email, Product_ID),
+  FOREIGN KEY (Email) REFERENCES Clerk(Email),
+  FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
+
+CREATE TABLE Manager
+(
+  Manger_Email INT NOT NULL,
+  Contact_info_ INT NOT NULL,
+  Name INT NOT NULL,
+  Surname INT NOT NULL,
+  Password INT NOT NULL,
+  Revenue_ID INT,
+  PRIMARY KEY (Manger_Email),
+  FOREIGN KEY (Revenue_ID) REFERENCES Revenue(Revenue_ID)
+);
+
+CREATE TABLE Edits
+(
+  Email INT NOT NULL,
+  Product_ID INT NOT NULL,
+  PRIMARY KEY (Email, Product_ID),
+  FOREIGN KEY (Email) REFERENCES Manager(Manger_Email),
+  FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
