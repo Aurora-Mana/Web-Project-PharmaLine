@@ -103,9 +103,10 @@ if(isset($_POST['add_to_cart'])){
 </head>
 <body>
   <header>
-    <img src="../../image/Logo.png" alt="Logo" class="logo">
+  <a href="../combinedpages.php">
+
+<img src="../../image/haircare.jpg" alt="Logo" class="logo"></a>
     <div class="header-text">
-      <h1>PHARMALINE</h1>
     </div>
     <div class="header-icons">
       <img src="../../image/search.png" alt="Search" class="header-icon">

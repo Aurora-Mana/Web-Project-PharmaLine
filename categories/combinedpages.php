@@ -71,22 +71,22 @@ if (isset($_SESSION['user_id'])) {
     height: auto; 
     }
 
-.header-icons {
-  display: flex;
-  align-items: center;
-}
+    .header-icons {
+     display: flex;
+    align-items: center;
+     }
 
-.header-icons .header-icon {
-  width: 34px;
-  height: 34px;
-  margin-left: 12px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
+     .header-icons .header-icon {
+      width: 34px;
+      height: 34px;
+      margin-left: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+     }
 
-.header-icons .header-icon:hover {
-  transform: scale(1.1);
-}
+      .header-icons .header-icon:hover {
+      transform: scale(1.1);
+      }
     
 
     /* Each section with a different background image */
@@ -181,6 +181,13 @@ if (isset($_SESSION['user_id'])) {
     color: #6D5A4F ;
     margin-right: -808px;
    }
+
+   body > div.container.skin-care > div.header {
+    font-size: 48px;
+    margin-bottom: 36px;
+    text-align: center;
+    margin-right: 186px;
+  }
    
     
     body > div.container.body-care > div.header {
@@ -192,15 +199,18 @@ if (isset($_SESSION['user_id'])) {
  
    body > div.container.hair-care > div.header {
     margin-right: 1012px;
+    font-size: 48px;
   }
 
 
    body > div.container.makeup > div.header {
     margin-right: -735px; 
+    font-size: 48px;
    }
 
    body > footer > div.container > div > div:nth-child(1) {
     margin-right: 513px;
+
 }
 body > footer > div.container > div > div:nth-child(1) > p {
     margin-right: 548px;
@@ -234,7 +244,8 @@ body > div.container.makeup > div {
       <img src="../image/search.png" alt="Search" class="header-icon">
       <a href="../users/login.php">
       <img src="../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()"></a>
-      <img src="../image/shopping-bag (1).png" alt="Shopping" class="header-icon">
+      <a href="../cart.php">
+      <img src="../image/shopping-bag (1).png" alt="Shopping" class="header-icon"></a>
       <a href="../blogUser.php">
       <img src="../image/blog1.png" alt="Shopping" class="header-icon"></a>   
       <?php if ($loggedIn) { ?>

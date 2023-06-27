@@ -162,8 +162,8 @@ if(isset($message)){
               <a href="manageProducts.php?delete=<?php echo $row['product_id']; ?>" class="btn"> <i class="fas fa-trash"></i>delete </a>
             </td>
          </tr>
-      <?php } 
-         header('location: manageProducts.php');
+      <?php 
+              }; 
          ?>
       </table>
    </div>

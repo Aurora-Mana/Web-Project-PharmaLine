@@ -31,16 +31,16 @@ if(isset($_POST['add_to_cart'])){
 <head>
   <title>Pharmaline - YouthLab Products</title>
   <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../assets/css/styleProductPage.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
-    .product-box {
-      display: inline-block;
-      width: 200px;
-      margin: 10px;
-      padding: 10px;
-      background-color: #f5f5f5;
-      text-align: center;
-      cursor: pointer; /* Add cursor style for hover effect */
+    .products{
+       display: grid;
+       grid-template-columns: repeat(3, 2fr);
+       gap: 3rem;
+       margin-bottom: 6rem;;
+       margin-top: 20px;
+       margin-left: 50px;
     }
 
     .product-box img {
@@ -126,7 +126,7 @@ if(isset($_POST['add_to_cart'])){
     margin-left: 1035px;
 }
 
-     .header {
+.header {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -180,26 +180,153 @@ if(isset($_POST['add_to_cart'])){
     height: 70px;
     position: absolute;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: auto;
+  }
+  
+  header {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .card{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    text-align: center;
+    cursor: pointer; /* Add cursor style for hover effect */
+  }
+  
+
+  .icard-img-top{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+  }
+
+  .card-body{
+    background-color: #f5f5f5;
+  }
+  
+  .star{
+    background-color: #ffffff;
+  }
+  
+  
+  .logo{
+    width: 80px;
+    height: auto;
+  }
+  
+  .logo-name{
+    width: 200px;
+    height: auto;
+  }
+  
+  .header-text {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .header-text h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons .header-icon {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .header-icons .header-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  a:link { 
+    text-decoration: none; 
+  }
+  
+  
+  a:visited { 
+  text-decoration: none; 
+  }
+  
+  
+  a:hover { 
+  text-decoration: none; 
+  }
+  
+  
+  a:active { 
+  text-decoration: none; 
+  }
+  
 
 
-
+  body > footer {
+    margin-top: 26px;
+  }
+  body > div > div > div:nth-child(1) > div > center > h3 {
+    margin-top: 25px;
+  }
+  body > div > div {
+    margin-top: 65px;
+}
+body > header > div.cart-icon > a {
+  margin-right: -300px;
+}
+body > header > div.logo {
+    margin-left: -227px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 517px;
+}
+body > header > a > img {
+    margin-left: -216px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 768px;
+}
   </style>
   </head>
 
   <!--This is the body part-->  
 
 <body>
-  <header class="header">
-    <div class="logo"> YouthLabProducts</div>
-    <a href="../combinedpages.php">
-    <img src="../../image/youthlogo.png" alt="Logo"></a>
-    <?php if ($loggedIn) { ?>
+<header>
+<a href="../combinedpages.php">
+    <img src="../../image/youthlogo.png" alt="Logo" class="logo"></a>
+    
+    <div class="header-text">
+    </div>
+    <div class="header-icons">
+      <img src="../../image/search.png" alt="Search" class="header-icon">
+      <img src="../../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <?php if ($loggedIn) { ?>
                   <a href="../../users/logout.php">
                   <img src="../../image/logout.png" alt="Logout" class="header-icon"></a>  
                   </a>
       <?php }; ?> 
-    <div class="cart-icon" onclick="toggleCartMenu()">
-    <?php
+      <?php
       
       $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
       $row_count = mysqli_num_rows($select_rows);
@@ -209,10 +336,8 @@ if(isset($_POST['add_to_cart'])){
       <img src="../../image/shopping-bag (1).png" alt="Shopping" class="header-icon"> <span><?php echo $row_count; ?></span>
     </a>
     </div>
-      <div id="cart-count" class="cart-count"></div>
-      <div id="cart-menu" class="cart-menu"></div>
-    </div>
   </header>
+
 
   <!-- SkinCode Page -->
   <div class="container skin-code-page">
@@ -296,77 +421,6 @@ if(isset($_POST['add_to_cart'])){
 </div>
 </div>
 </footer> 
-
-    <div class="product-box" onclick="showProductDetails('5200142100476_1.png', 'Retinol Reboot Hydra-Gel Eye Patches – 60 pcs.')">
-      <img src="../../image/5200142100476_1.png" alt="Product.A">
-      <h3>Retinol Reboot Hydra-Gel Eye Patches – 60 pcs.</h3>
-      <p>16.50$</p>
-      <button class="add-to-bag-button" onclick="addToCart('Retinol Reboot Hydra-Gel Eye Patches – 60 pcs.', '5200142100476_1.png')">Add to Bag</button>
-   </div>
-       
-   <div class="product-box" onclick="showProductDetails('5200142100506_1.png', 'Retinol Reboot Mask – 1 pc ')">
-    <img src="../../image/5200142100506_1.png" alt="Product B">
-    <h3>Retinol Reboot Mask – 1 pc</h3>
-    <p>8.50$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Retinol Reboot Mask – 1 pc' , '5200142100506_1.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('hydro-cloud-serum_a.png', 'hydro-cloud-serum_a.png')">
-    <img src="../../image/hydro-cloud-serum_a.png" alt="Product C">
-    <h3> Ηydro Cloud Serum 30ml</h3>
-    <p>39$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Ηydro Cloud Serum 30ml', 'hydro-cloud-serum_a.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('5200142100391_1.png', 'Hydro Cloud Oil-Free Water Gel')">
-    <img src="../../image/5200142100391_1.png" alt="Product C">
-    <h3>Hydro Cloud Oil-Free Water Gel</h3>
-    <p>18.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Hydro Cloud Oil-Free Water Gel', '5200142100391_1.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('CC-Complete-Cream-Oily.png', 'CC Complete Cream SPF 30')">
-    <img src="../../image/CC-Complete-Cream-Oily.png" alt="Product C">
-    <h3>CC Complete Cream SPF 30</h3>
-    <p>110.47$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CC Complete Cream SPF 30' , 'CC-Complete-Cream-Oily.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('eye-Patches-peptides_Site-award-3.png', 'Peptides Spring Hydra-Gel Eye Patches – 60 pcs. ')">
-    <img src="../../image/eye-Patches-peptides_Site-award-3.png" alt="Product C">
-    <h3>10% PURE VITAMIN C SERUM</h3>
-    <p>20$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Peptides Spring Hydra-Gel Eye Patches – 60 pcs.', 'eye-Patches-peptides_Site-award-3.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('Brightening_vitC_gel-cream_Site-2.png', 'Brightening Vit-C Gel Cream')">
-    <img src="../../image/Brightening_vitC_gel-cream_Site-2.png" alt="Product C">
-    <h3>Brightening Vit-C Gel Cream</h3>
-    <p>27$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Brightening_vitC_gel-cream_Site-2.png', 'Brightening Vit-C Gel Cream')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Wrinkles-Cream-eyes_Site-1.png', 'Wrinkles Erasure Cream For Eyes')">
-    <img src="../../image/Wrinkles-Cream-eyes_Site-1.png" alt="Product C">
-    <h3>Wrinkles Erasure Cream For Eyes</h3>
-    <p>37$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Wrinkles Erasure Cream For Eyes','Wrinkles-Cream-eyes_Site-1.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Daily-sunscreen-cream_Site-800x800.png', 'Daily Sunscreen Cream SPF 50')">
-    <img src="../../image/Daily-sunscreen-cream_Site-800x800.png" alt="Product C">
-    <h3>Daily Sunscreen Cream SPF 50</h3>
-    <p>16.99$</p>
-    <button class="add-to-bag-button" onclick="addToCart('Daily Sunscreen Cream SPF 50 ','Daily-sunscreen-cream_Site-800x800.png')">Add to Bag</button>
-  </div>
-
- 
-
-  
-</div>
-
 
 <script>
   var cartCount = 0;

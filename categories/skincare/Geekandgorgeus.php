@@ -26,22 +26,23 @@ if(isset($_POST['add_to_cart'])){
    }
 }
 ?>
-?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Pharmaline - SkinCode Products</title>
   <script src="https://kit.fontawesome.com/132b724676.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../../assets/css/styleProductPage.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <style>
-    .product-box {
-      display: inline-block;
-      width: 200px;
-      margin: 10px;
-      padding: 10px;
-      background-color: #f5f5f5;
-      text-align: center;
-      cursor: pointer; /* Add cursor style for hover effect */
+  
+  .products{
+       display: grid;
+       grid-template-columns: repeat(3, 2fr);
+       gap: 3rem;
+       margin-bottom: 6rem;;
+       margin-top: 20px;
+       margin-left: 50px;
     }
 
     .product-box img {
@@ -181,26 +182,151 @@ if(isset($_POST['add_to_cart'])){
     height: 70px;
     position: absolute;
 }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+     padding: 0;
+     height: 100vh;
+     width: auto;
+  }
+  
+  header {
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .card{
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    text-align: center;
+    cursor: pointer; /* Add cursor style for hover effect */
+  }
+  
 
+  .icard-img-top{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    margin-left: 60px;
+  }
 
-
+  .card-body{
+    background-color: #f5f5f5;
+  }
+  
+  .star{
+    background-color: #ffffff;
+  }
+  
+  
+  .logo{
+    width: 80px;
+    height: auto;
+  }
+  
+  .logo-name{
+    width: 200px;
+    height: auto;
+  }
+  
+  .header-text {
+    text-align: center;
+    flex-grow: 1;
+  }
+  
+  .header-text h1 {
+    font-size: 24px;
+    color: #333333;
+    margin: 0;
+  }
+  
+  .header-icons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-icons .header-icon {
+    width: 34px;
+    height: 34px;
+    margin-left: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .header-icons .header-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  a:link { 
+    text-decoration: none; 
+  }
+  
+  
+  a:visited { 
+  text-decoration: none; 
+  }
+  
+  
+  a:hover { 
+  text-decoration: none; 
+  }
+  
+  
+  a:active { 
+  text-decoration: none; 
+  }
+  
+  
+  body > footer {
+    margin-top: 26px;
+  }
+  body > div > div > div:nth-child(1) > div > center > h3 {
+    margin-top: 25px;
+  }
+  body > div > div {
+    margin-top: 65px;
+}
+body > header > div.cart-icon > a {
+  margin-right: -300px;
+}
+body > header > div.logo {
+    margin-left: -227px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 517px;
+}
+body > header > a > img {
+    margin-left: -216px;
+}
+body > header > div.cart-icon > a > img {
+    margin-left: 768px;
+}
   </style>
   </head>
 
   <!--This is the body part-->  
 
 <body>
-  <header class="header">
-    <div class="logo"> Geek & Gorgeous Products</div>
-    <a href="../combinedpages.php">
-    <img src="../../image/geekLogo.png" alt="Logo"></a>
-    <?php if ($loggedIn) { ?>
+<header>
+<a href="../combinedpages.php">
+    <img src="../../image/geekLogo.png" alt="Logo" class="logo"></a>
+    <div class="header-text">
+    </div>
+    <div class="header-icons">
+      <img src="../../image/search.png" alt="Search" class="header-icon">
+      <img src="../../image/user (1).png" alt="User" class="header-icon" onclick="showLoginForm()">
+      <?php if ($loggedIn) { ?>
                   <a href="../../users/logout.php">
                   <img src="../../image/logout.png" alt="Logout" class="header-icon"></a>  
                   </a>
       <?php }; ?> 
-    <div class="cart-icon" onclick="toggleCartMenu()">
-    <?php
+      <?php
       
       $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
       $row_count = mysqli_num_rows($select_rows);
@@ -209,9 +335,6 @@ if(isset($_POST['add_to_cart'])){
       <a href="../../cart.php">
       <img src="../../image/shopping-bag (1).png" alt="Shopping" class="header-icon"> <span><?php echo $row_count; ?></span>
     </a>
-    </div>
-      <div id="cart-count" class="cart-count"></div>
-      <div id="cart-menu" class="cart-menu"></div>
     </div>
   </header>
 
@@ -251,118 +374,7 @@ if(isset($_POST['add_to_cart'])){
       <?php  
         };
       };
-     ?>
-   </div>
-
-    <div class="product-box" onclick="showProductDetails('CGlow-square-2023_360x.webp.png', ' C-Glow')">
-      <img src="../../image/CGlow-square-2023_360x.webp.png" alt="Product.A">
-      <h3> C-Glow</h3>
-      <p>12.50$</p>
-      <button class="add-to-bag-button" onclick="addToCart('C-Glow', 'CGlow-square-2023_360x.webp.png')">Add to Bag</button>
-   </div>
-       
-   <div class="product-box" onclick="showProductDetails('BBomb-square-2023_360x.webp.png', 'B-BOMB ')">
-    <img src="../../image/BBomb-square-2023_360x.webp.png" alt="Product B">
-    <h3>B-BOMB</h3>
-    <p>8.50$</p>
-    <button class="add-to-bag-button" onclick="addToCart('B-BOMB ' , 'BBomb-square-2023_360x.webp.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('A-GAME-5-square_360x.webp.png', 'A-GAME 5')">
-    <img src="../../image/A-GAME-5-square_360x.webp.png" alt="Product C">
-    <h3>A-GAME 5</h3>
-    <p>13.8$</p>
-    <button class="add-to-bag-button" onclick="addToCart('A-GAME 5', 'A-GAME-5-square_360x.webp.png')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('A-GAME-10-square_360x.webp.png', 'A-GAME 10')">
-    <img src="../../image/A-GAME-10-square_360x.webp.png" alt="Product C">
-    <h3>A-GAME 10</h3>
-    <p>18.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart('A-GAME 10', 'A-GAME-10-square_360x.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('aPAD-square-2023_360x.webp.png', 'aPAD')">
-    <img src="../../image/aPAD-square-2023_360x.webp.png" alt="Product C">
-    <h3>aPAD</h3>
-    <p>11.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart('aPAD' , 'aPAD-square-2023_360x.webp.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('liquid-hydration-square_360x.webp.png', 'LIQUID HYDRATION ')">
-    <img src="../../image/liquid-hydration-square_360x.webp.png" alt="Product C">
-    <h3>LIQUID HYDRATION </h3>
-    <p>10$</p>
-    <button class="add-to-bag-button" onclick="addToCart('LIQUID HYDRATION', 'liquid-hydration-square_360x.webp.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('101_Jelly_Joker-square_360x.webp.png', 'JELLY JOKER')">
-    <img src="../../image/101_Jelly_Joker-square_360x.webp.png" alt="Product C">
-    <h3>JELLY JOKER </h3>
-    <p>67$</p>
-    <button class="add-to-bag-button" onclick="addToCart('101_Jelly_Joker-square_360x.webp.png', 'JELLY JOKER')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('cheer-up-square-2023_360x.webp.png', 'CHEER UP')">
-    <img src="../../image/cheer-up-square-2023_360x.webp.png" alt="Product C">
-    <h3>CHEER UP</h3>
-    <p>28.50$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CHEER UP','cheer-up-square-2023_360x.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('calm-down-square-2023_360x.webp.png', 'CALMN DOWN')">
-    <img src="../../image/calm-down-square-2023_360x.webp.png" alt="Product C">
-    <h3>CALMN DOWN</h3>
-    <p>23.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart('CALMN DOWN ','calm-down-square-2023_360x.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Happier-Barrier-Square_360x.webp.png', 'HAPPIER BARRIER')">
-    <img src="../../image/Happier-Barrier-Square_360x.webp.png" alt="Product C">
-    <h3>HAPPIER BARRIER</h3>
-    <p>10$</p>
-    <button class="add-to-bag-button" onclick="addToCart('HAPPIER BARRIER' ,'Happier-Barrier-Square_360x.webp.png')">Add to Bag</button>
-  </div>
-
-
-  <div class="product-box" onclick="showProductDetails('Smart-Age-Kit_360x.webp.png', 'SMART AGE KIT')">
-    <img src="../../image/Smart-Age-Kit_360x.webp.png" alt="Product C">
-    <h3>SMART AGE KIT</h3>
-    <p>63.80$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'SMART AGE KIT','Smart-Age-Kit_360x.webp.png')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('The-Gift-Kit_360x.webp.PNG', 'THE GIFT KIT')">
-    <img src="../../image/The-Gift-Kit_360x.webp.PNG" alt="Product C">
-    <h3>THE GIFT KIT</h3>
-    <p>24.75$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'THE GIFT KIT','The-Gift-Kit_360x.webp.PNG')">Add to Bag</button>
-  </div>
-  
-  <div class="product-box" onclick="showProductDetails('MM-squaremasolat_360x.webp.PNG', 'MIGHTY MELT')">
-    <img src="../../image/MM-squaremasolat_360x.webp.PNG" alt="Product C">
-    <h3>MIGHTY MELT</h3>
-    <p>37$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'MIGHTY MELT','MM-squaremasolat_360x.webp.PNG')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('Keep-Calm-Kit_360x.webp.PNG', 'KEEP CALM KIT')">
-    <img src="../../image/Keep-Calm-Kit_360x.webp.PNG" alt="Product C">
-    <h3>KEEP CALM KIT </h3>
-    <p>49$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'KEEP CALM KIT','Keep-Calm-Kit_360x.webp.PNG')">Add to Bag</button>
-  </div>
-
-  <div class="product-box" onclick="showProductDetails('geeks-to-go_360x.webp.PNG', 'GEEKS TO GO')">
-    <img src="../../image/geeks-to-go_360x.webp.PNG" alt="Product C">
-    <h3>GEEKS TO GO</h3>
-    <p>54$</p>
-    <button class="add-to-bag-button" onclick="addToCart( 'GEEKS TO GO','geeks-to-go_360x.webp.PNG')">Add to Bag</button>
-  </div>
-
-  
+     ?>  
 </div>
 
 

@@ -37,7 +37,7 @@ if(isset($_POST['add_to_cart'])){
 <body>
  <header>
     <a href="../combinedpages.php">
-    <img src="../../image/bodycare.jpg" alt="" class="logob"></a>
+    <img src="../../image/bodycarejpg.jpg" alt="" class="logob"></a>
 
    
     <div class="header-icons">
